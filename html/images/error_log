@@ -1,0 +1,26 @@
+[23-Sep-2019 15:37:14 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[23-Sep-2019 15:37:17 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[23-Sep-2019 15:37:19 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[23-Sep-2019 15:39:53 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[23-Sep-2019 15:40:43 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[23-Sep-2019 15:48:24 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[24-Sep-2019 12:41:44 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[24-Sep-2019 13:18:48 America/New_York] PHP Warning:  end() expects parameter 1 to be array, null given in /home/cypherso/public_html/images/cur.php on line 16
+[24-Sep-2019 13:23:29 America/New_York] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/cypherso/public_html/images/cur.php on line 15
+[24-Sep-2019 13:23:33 America/New_York] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/cypherso/public_html/images/cur.php on line 15
+[24-Sep-2019 13:23:59 America/New_York] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/cypherso/public_html/images/cur.php on line 15
+[24-Sep-2019 13:24:43 America/New_York] PHP Catchable fatal error:  Object of class stdClass could not be converted to string in /home/cypherso/public_html/images/cur.php on line 15
+[24-Sep-2019 13:28:03 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function array_key_first() in /home/cypherso/public_html/images/cur.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/cypherso/public_html/images/cur.php on line 22
+[24-Sep-2019 13:28:06 America/New_York] PHP Fatal error:  Uncaught Error: Call to undefined function array_key_first() in /home/cypherso/public_html/images/cur.php:22
+Stack trace:
+#0 {main}
+  thrown in /home/cypherso/public_html/images/cur.php on line 22
+[25-Sep-2019 10:40:19 America/New_York] PHP Notice:  Trying to get property of non-object in /home/cypherso/public_html/images/cur.php on line 17
+[25-Sep-2019 10:40:19 America/New_York] PHP Notice:  Trying to get property of non-object in /home/cypherso/public_html/images/cur.php on line 19
+[25-Sep-2019 10:42:01 America/New_York] PHP Notice:  Trying to get property of non-object in /home/cypherso/public_html/images/cur.php on line 17
+[25-Sep-2019 10:42:01 America/New_York] PHP Notice:  Trying to get property of non-object in /home/cypherso/public_html/images/cur.php on line 19
+[25-Sep-2019 10:42:30 America/New_York] PHP Notice:  Trying to get property of non-object in /home/cypherso/public_html/images/cur.php on line 17
+[25-Sep-2019 12:11:36 America/New_York] PHP Notice:  Trying to get property of non-object in /home/cypherso/public_html/images/cur.php on line 17
