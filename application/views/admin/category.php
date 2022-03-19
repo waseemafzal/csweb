@@ -200,7 +200,7 @@ if(!confirm('Are you sure to delete')){
 
 $.ajax({
   type: "POST",
-  url: "category/delete",
+  url: "admin/category/delete",
   processData: false,
     contentType: false,
     cache: false,
@@ -248,7 +248,7 @@ formdata.append('id',$("#id").val());
 
 $.ajax({
   type: "POST",
-  url: "category/save",
+  url: "admin/category/save",
   processData: false,
     contentType: false,
     cache: false,
@@ -301,7 +301,7 @@ formdata.append('action','edit');
 
 $.ajax({
   type: "POST",
-  url: "category/edit",
+  url: "admin/category/edit",
   processData: false,
     contentType: false,
     cache: false,

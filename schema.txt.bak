@@ -1,5 +1,6 @@
 cms/services
 id,title,content,banner,icon_class,meta_title,meta_description,meta_keywords
+
 cms_process
 id,title,icon_class,image,description,cms_id
 
@@ -29,5 +30,3 @@ id,name,email,website,description,status
 
 settings
 id,logo,phone,address,whatsapp,email,fb,youtube,twitter,linkedin
-silder
-id,title,description,image

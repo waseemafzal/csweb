@@ -37,6 +37,12 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>Product</span></a>
             </li>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="admin/cmservices">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Cms Service</span></a>
+            </li>
 
 
             <!-- Divider -->

@@ -13,7 +13,7 @@ class Products extends CI_Controller {
 	$array=array();
 	$array['modeltitle']='Product';
 	$array['data']=	$this->product_model->getData(); 	
-	$this->load->view('Products',$array);			
+	$this->load->view('admin/Products',$array);			
 	}
 	
 

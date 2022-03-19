@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,12 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <style type="text/css">
+
+.customWidth{
+    width: 90%;
+    max-width: initial;
+}
+
     .title{
         display: inline-block;
     }
@@ -56,7 +63,7 @@
 
                     <!-- Page Heading -->
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
-                   <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#productsModal">
+                   <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#cmservicesModal">
                                     <i class="fas fa-plus"></i>
                                     Add
                                 </a>
@@ -72,10 +79,13 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Product Name</th>
-                                            <th>Select ppoduct</th>
-                                            <th>Price</th>
-                                            <th>description</th>
+                                            <th>Title</th>
+                                            <th>Content</th>
+                                            <th>Banner</th>
+                                            <th>Icon_class</th>
+                                             <th>Meta_title</th>
+                                            <th>Meta_description</th>
+                                            <th>Meta_keywords</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -85,10 +95,14 @@
 									foreach($data as $key=>$val){
 									?>
                                      <tr id="row_<?php echo  $val['id'] ?>">
-                                            <td><?php echo $val['name']  ?></td>
-                                            <td><?php echo $val['product']  ?></td>
-                                            <td><?php echo $val['price']  ?></td>
-                                            <td><?php echo $val['description']  ?></td>
+                                            <td><?php echo $val['title']  ?></td>
+                                            <td><?php echo $val['content']  ?></td>
+                                            <td><img width="50" src="upload/<?php echo $val['banner']  ?>" ></td>
+                                            <td><?php echo $val['icon_class']  ?></td>
+                                            <td><?php echo $val['meta_title']  ?></td>
+                                              <td><?php echo $val['meta_description']  ?></td>
+                                            <td><?php echo $val['meta_keywords']  ?></td>
+                                            
                                             <td><a class="btn btn-info" onClick="editRecord('<?php echo  $val['id'] ?>')">edit</a>
                                              <a onClick="deleteRecord('<?php echo  $val['id'] ?>')"  class="btn btn-danger">delete</a></td>
                                         </tr>
@@ -127,12 +141,12 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="productsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="cmservicesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog customWidth" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Product</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Cms Services</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
@@ -141,42 +155,56 @@
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input type="text" id="text_name" name="name"  class="form-control" >
+                       <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <label>Title</label>
+                                            <input type="text" id="text_title" name="title"  class="form-control" >
                                             
                                         </div>
-                                       <label>Select Product category:</label>
-                    <select class="form-control" name="product" id="text_category">
-                   
-                       <option value="Car">Car</option>
-            <option value="Bus">Bus</option>
-            <option value="Motorcycle">Motorcycle</option>
-              <option value="Cycle ">Cycle </option>
-            <option value="Computer">Computer</option>
-            <option value="Laptop">Laptop</option>
-             <option value="LCD">LCD</option>
-              <option value="Television">Television</option>
-            <option value="Washing Machine">Washing Machine</option>
-            <option value="Fan">Fan</option>
-             <option value="Table Fan">Table Fan</option>
-              <option value="Refrigerator">Refrigerator</option>
-            <option value="Iron">Iron</option>
-            <option value="Microwave Oven">Microwave Oven</option>
-                    </select>
-                                        <div class="form-group">
-                                            <label>Price</label>
-                                            <input type="number" id="text_price" name="price"  class="form-control" >
+                                  
+                                        <div class="col-md-6 col-xs-12">
+                                            <label>Content</label>
+                                            <input type="text" id="text_content" name="content"  class="form-control" >
                                              
                                         </div>
-                                        <div class="form-group">
-                                            <label>description</label>
-                                            <textarea id="text_description" name="description"  class="form-control"rows="5" ></textarea>
+                                        </div>
+                                        
+                                        <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <label>Banner</label>
+                                            <input type="file" id="banner" name="banner"  class="form-control" >
+                                            
+                                        </div>
+                                  
+                                        <div class="col-md-6 col-xs-12">
+                                            <label>Icon_class</label>
+                                            <input type="text" id="text_icon" name="icon_class"  class="form-control" >
+                                             
+                                        </div>
+                                        
+                                        
+                                  </div>
+                                  <!--(`id`, ``, `content`, `banner`, `icon_class`, `meta_title`, `meta_description`, `meta_keywords`)-->
+                                  <div class="row">
+                                  <div class="col-md-6 col-xs-12">
+                                            <label>Meta_title</label>
+                                            <input type="text" id="text_titles" name="meta_title"  class="form-control" >
+                                            
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <label>Meta_keywords</label>
+                                            <input type="text" id="text_keywords" name="meta_keywords"  class="form-control" >
+                                             
+                                        </div>
+                                        
+                                        
+                                        <div class="col-md-12 col-xs-12">
+                                            <label>Mata_description</label>
+                                            <textarea id="text_description" name="meta_description"  class="form-control"rows="5" ></textarea>
                                             
                                         </div>
                                        
-                                     
+                                     </div>
                                    
                     
 
@@ -232,7 +260,7 @@ if(!confirm('Are you sure to delete')){
 
 $.ajax({
   type: "POST",
-  url: "admin/products/delete",
+  url: "admin/cmservices/delete",
   processData: false,
     contentType: false,
     cache: false,
@@ -275,15 +303,15 @@ var other_data = $('#form_add_update').serializeArray();
 	
     $.each(other_data,function(key,input){
         formdata.append(input.name,input.value);
-    });   
-	/* if($('#image').val()!=''){
-		formData.append("image", document.getElementById('image').files[0]);
-		}*/
-
+      
+	 if($('#banner').val()!=''){
+		formdata.append("banner", document.getElementById('banner').files[0]);
+		}
+  });
 
 $.ajax({
   type: "POST",
-  url: "admin/products/save",
+  url: "admin/cmservices/save",
   processData: false,
     contentType: false,
     cache: false,
@@ -297,8 +325,8 @@ $.ajax({
 
      $("#loader").hide();  
    response = jQuery.parseJSON(response);
-  console.log(response);
-  // alert(response.status);
+    console.log(response);
+  //alert(response.status);
      if(response.status==200){
          $("#customAlert").addClass("alert-success");
      }
@@ -335,7 +363,7 @@ formdata.append('action','edit');
 
 $.ajax({
   type: "POST",
-  url: "admin/products/edit",
+  url: "admin/cmservices/edit",
   processData: false,
     contentType: false,
     cache: false,
@@ -350,17 +378,18 @@ $.ajax({
 /*
 {"status":200,"data":{"id":"2","name":"ferter","product":"Bus","price":"-74","description":"ertfawert"}}
 */
-$('#text_name').val(response.data.name);
-//$('#text_category').val(response.data.name);
-$("#text_category option[value='"+response.data.product+"']").attr("selected","selected");
-
-$('#text_price').val(response.data.price);
-$('#text_description').val(response.data.description);
+$('#text_title').val(response.data.title);
+$('#text_content').val(response.data.content);
+$('#text_banner').val(response.data.banner);
+$('#text_icon').val(response.data.icon_class);
+$('#text_titles').val(response.data.meta_title);
+$('#text_description').val(response.data.meta_description);
+$('#text_keywords').val(response.data.meta_keywords);
 
 $('#id').val(id);
 $('#action').val('update');
 
-$('#productsModal').modal('show');
+$('#cmservicesModal').modal('show');
 
   }
   // ajax end

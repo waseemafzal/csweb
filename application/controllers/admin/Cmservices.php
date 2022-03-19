@@ -1,30 +1,27 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller {
+class Cmservices extends CI_Controller {
 
 		public function __construct()
         {
                 parent::__construct();
-                // Your own constructor code
-				$this->load->model('category_model','model');
+				$this->load->model('cmservices_model','model');
         }
 
-	
-	
-	// main page to show data in table
 	public function index(){		
 	$array=array();
-	$array['title']='Category Managements';
-	$array['data']=	$this->model->getData(); // call to model function to get data from database	
-	$this->load->view('admin/Category',$array);			
+	$array['modeltitle']='Cms Services';
+	$array['data']=	$this->model->getData(); 	
+	$this->load->view('admin/Cmservices',$array);			
 	}
 	
-	// delete function to delete data
+
 	public function delete(){	
 	extract($_POST);	
 	$this->db->where('id', $id);
-	$res=$this->db->delete('tbl_cat'); // delete query to delete from db 
+	$res=$this->db->delete('cms_services');
 	if($res==1){
 		$response['status']=200;
          $response['message']='deleted successfully';
@@ -34,33 +31,34 @@ class Category extends CI_Controller {
 		}
 	echo json_encode($response);exit;	
 	}
-	
-	// save data either insert or update using one function
 	public function save(){
 		$response=array();
-		// form validation start
+		extract($_POST);
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('cat', 'Category', 'required|min_length[3]|max_length[10]|is_unique[tbl_cat.category]');
+		$this->form_validation->set_rules('title', ' title','required');
+		$this->form_validation->set_rules('content', ' content','required');
+		$this->form_validation->set_rules('icon_class', ' icons','required');
 		if ($this->form_validation->run() == FALSE)
                 {
                        		$response['status']=204;
-                       		$response['message']=strip_tags(validation_errors());
+                       		$response['message']=validation_errors();
 							echo json_encode($response);exit;
 
                 }
-				// form validation end
                 else
                 {
-					// if form is valid then below code
-                   extract($_POST);
-				   
-				   $data=array('category'=>$cat); // This is data array to insert or update the category is a db colmn name and $cat is the value comming from form enter by user
-				   
-				   // check if form has id field in hidden and not empty
+                   
+				  //  //mata_description
+				  
+				  $banner='noimg.png';
+				  if(isset($_FILES['banner']['name'])){
+					 // print_r($_FILES);exit;
+					$banner=  $this->model->do_upload();
+					  
+					  }
+				   $data=array('title'=>$title,'content'=>$content,'banner'=>$banner,'icon_class'=>$icon_class,'meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_keywords'=>$meta_keywords); 
 					if(isset($id) and $id!=''){
-						// if not empty then it mean we have to update
-						// update
-						$result=  $this->model->updateData($id,$data); // call the update model function and pass id and array
+						$result=  $this->model->updateData($id,$data); 
 						if($result==1){
 						$response['status']=200;
                        		$response['message']='Update success';
@@ -71,8 +69,7 @@ class Category extends CI_Controller {
 							echo json_encode($response);exit;
 							}
 						}else{
-							 // insert data
-					$result=  $this->model->insertData($data); // call insert function in model to insert data and passed data array
+					$result=  $this->model->insertData($data); 
 					if($result==1){
 						$response['status']=200;
                        		$response['message']='Inserted successfully';
@@ -88,10 +85,8 @@ class Category extends CI_Controller {
 		
 		
 		}
-	
-	// edit function will get data and show to user in form so he can edit it 
 	function edit(){
-			extract($_POST);
+			extract($_POST); 
 			$result=  $this->model->editData($id);
 			if(!empty($result)){
 			$response['status']=200;
@@ -106,5 +101,4 @@ class Category extends CI_Controller {
 	
 	
 	
-
 }
