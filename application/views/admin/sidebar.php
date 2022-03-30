@@ -17,31 +17,61 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="category">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Category</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="subcategory">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Subcategory</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="usermangment">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Usermangment</span></a>
-            </li>
+            
               <li class="nav-item">
-                <a class="nav-link" href="products">
+                <a class="nav-link" href="admin/contactus">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Product</span></a>
+                    <span>Contact Us</span></a>
             </li>
+               <li class="nav-item">
+                <a class="nav-link" href="admin/silders">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Silder</span></a>
             </li>
+            
+            
               <li class="nav-item">
                 <a class="nav-link" href="admin/cmservices">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Cms Service</span></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="admin/portfolioimages">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Portfolio Images</span></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="admin/portfolio">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Portfolio</span></a>
+            </li>
+               <li class="nav-item">
+                <a class="nav-link" href="admin/faqs">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Faqs</span></a>
+            </li>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="admin/careers">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Careers</span></a>
+            </li>
+            </li>
+               <li class="nav-item">
+                <a class="nav-link" href="admin/blogcomments">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Blog Comments</span></a>
+            </li>
+            </li>
+               <li class="nav-item">
+                <a class="nav-link" href="admin/teams">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Teams</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin/Settings">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Setting Page</span></a>
             </li>
 
 

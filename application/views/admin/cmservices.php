@@ -71,7 +71,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Cms Services</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -82,10 +82,7 @@
                                             <th>Title</th>
                                             <th>Content</th>
                                             <th>Banner</th>
-                                            <th>Icon_class</th>
-                                             <th>Meta_title</th>
-                                            <th>Meta_description</th>
-                                            <th>Meta_keywords</th>
+                                            <th>Process</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -96,15 +93,23 @@
 									?>
                                      <tr id="row_<?php echo  $val['id'] ?>">
                                             <td><?php echo $val['title']  ?></td>
-                                            <td><?php echo $val['content']  ?></td>
-                                            <td><img width="50" src="upload/<?php echo $val['banner']  ?>" ></td>
-                                            <td><?php echo $val['icon_class']  ?></td>
-                                            <td><?php echo $val['meta_title']  ?></td>
-                                              <td><?php echo $val['meta_description']  ?></td>
-                                            <td><?php echo $val['meta_keywords']  ?></td>
                                             
-                                            <td><a class="btn btn-info" onClick="editRecord('<?php echo  $val['id'] ?>')">edit</a>
-                                             <a onClick="deleteRecord('<?php echo  $val['id'] ?>')"  class="btn btn-danger">delete</a></td>
+										                                  <td><?php
+													$des= strip_tags($val['content']);
+											
+echo get_words($des,10);
+?></td>
+                                            <td><img width="50" src="upload/<?php echo $val['banner']  ?>" ></td>
+                                            <td> <a class="btn btn-success" href="admin/cmsprocess?cms_id=<?php echo  $val['id'] ?>">
+                 
+                    							<span>Processes</span></a></td>
+                                            
+                                            <td>
+                                           
+                                            <a class="btn btn-info btn-xs" onClick="editRecord('<?php echo  $val['id'] ?>')">
+                                            <i class="fa fa-pen"></i></a>
+                                             <a onClick="deleteRecord('<?php echo  $val['id'] ?>')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a></td>
+                                             
                                         </tr>
                                        <?php } ?>
                                     </tbody>
@@ -186,19 +191,19 @@
                                   </div>
                                   <!--(`id`, ``, `content`, `banner`, `icon_class`, `meta_title`, `meta_description`, `meta_keywords`)-->
                                   <div class="row">
-                                  <div class="col-md-6 col-xs-12">
+                                  <div class="col-md-6 col-xs-12" style="display: none>
                                             <label>Meta_title</label>
                                             <input type="text" id="text_titles" name="meta_title"  class="form-control" >
                                             
                                         </div>
-                                        <div class="col-md-6 col-xs-12">
+                                        <div class="col-md-6 col-xs-12" style="display: none>
                                             <label>Meta_keywords</label>
                                             <input type="text" id="text_keywords" name="meta_keywords"  class="form-control" >
                                              
                                         </div>
                                         
                                         
-                                        <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-12 col-xs-12" style="display: none>
                                             <label>Mata_description</label>
                                             <textarea id="text_description" name="meta_description"  class="form-control"rows="5" ></textarea>
                                             
