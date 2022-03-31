@@ -197,6 +197,21 @@ echo get_words($des,10);
                                             <input type="text" id="text_tags" name="tags"  class="form-control" >
                                             
                                         </div>
+                                        <div class="col-md-12 col-xs-12" style="display: none">
+                                            <label>meta_title</label>
+                                            <input type="text" id="meta_title" name="meta_title"  class="form-control" >
+                                            
+                                        </div>
+                                        <div class="col-md-12 col-xs-12" style="display: none">
+                                            <label>meta_description</label>
+                                            <input type="text" id="meta_description" name="meta_description"  class="form-control" >
+                                            
+                                        </div>
+                                        <div class="col-md-12 col-xs-12" style="display: none">
+                                            <label>meta_keywords</label>
+                                            <input type="text" id="meta_keywords" name="meta_keywords"  class="form-control" >
+                                            
+                                        </div>
                
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
@@ -376,9 +391,9 @@ CKEDITOR.instances.description.setData(response.data.description);
 
 $('#text_date').val(response.data.date);
 $('#text_tags').val(response.data.tags);
-$('#text_titles').val(response.data.meta_title);
-$('#text_description').val(response.data.meta_description);
-$('#text_keywords').val(response.data.meta_keywords);
+$('#meta_title').val(response.data.meta_title);
+$('#meta_description').val(response.data.meta_description);
+$('#meta_keywords').val(response.data.meta_keywords);
 
 $('#id').val(id);
 $('#action').val('update');

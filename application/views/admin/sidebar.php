@@ -57,6 +57,11 @@
                     <span>Careers</span></a>
             </li>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin/blogs">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Blogs</span></a>
+            </li>
                <li class="nav-item">
                 <a class="nav-link" href="admin/blogcomments">
                     <i class="fas fa-fw fa-table"></i>

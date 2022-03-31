@@ -16,7 +16,7 @@ id,title,department,positions,description?
 
 
 blogs
-id,title,category,description,date,file,meta_title,meta_description,meta_keywords
+id,title,category,description,date,file,tags,meta_title,meta_description,meta_keywords
 blog_comments
 id,name,email,website,description,status?
 
