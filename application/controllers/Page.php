@@ -3,18 +3,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page extends CI_Controller {
 
-
+public function __construct()
+        {
+                parent::__construct();
+				$this->load->model('silders_model');
+				$this->load->model('cmservices_model');
+        }
 	
 	public function home()
 		{
+			$array['sliderData']=	$this->silders_model->getData(); 
+			{
+			$array['cmservicesData']=	$this->cmservices_model->getData();
+			$this->load->view('index',$array);  
 			
-			$this->load->view('index');
+		} 
 			
 		}
+		
+		
+	
 	public function services()
 		{
 			
-			$this->load->view('services');
+$array['cmservicesData']=	$this->cmservices_model->getData();
+			$this->load->view('services',$array);
 			
 		}
 		public function portfolio()

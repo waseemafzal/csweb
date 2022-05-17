@@ -1,25 +1,29 @@
 <?php include_once"includes/header.php" ?>
     <!-- SLIDER -->
     <div class="main-slider">
+    
         <div class="content">
             <div id="rev_slider_1059_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="concept121" data-source="gallery">
                 <!-- START REVOLUTION SLIDER 5.4.1 fullwidth mode -->
                 <div id="rev_slider_1078_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.4.1">
                     <ul>
+                     <?php 
+									foreach($sliderData as $key=>$val){
+									?>
                         <!-- SLIDE  -->
                         <li data-index="rs-3049" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"
                             data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0"
                             data-saveperformance="off" data-title="Love it?" data-param1="" data-param2="" data-param3="" data-param4=""
                             data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="public/images/slider-2.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone"
+                            <img src="upload/<?php echo $val['image']  ?>" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone"
                                 data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500"
                                 data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
                             <!-- Mobile only text -->
                             <div class="visible-xs caption-mobile">
-                                <div class="h1" style="color: #008ccb;">Increase Your Return on Investment</div>
-                                <div class="h2" style="color: #323a45;">Digital marketing can incrase your ROI significantly.</div>
+                                <div class="h1" style="color: #008ccb;"><?php echo $val['title']  ?>t</div>
+                                <div class="h2" style="color: #323a45;"><?php echo $val['description']  ?></div>
                             </div>
                             <!-- LAYER NR. 1 -->
                             <div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-3" id="slide-3046-layer-7" data-x="left" data-hoffset="0"
@@ -27,7 +31,7 @@
                                 data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[60]" data-fontsize="[90,56,40,30]" data-paddingleft="[0,50,50,50]" style="z-index: 9; white-space: nowrap;text-transform:left;">
-                                <div class="h1" style="color: #008ccb;">Increase Your Return<br> on Investment</div>
+                                <div class="h1" style="color: #008ccb;"><?php echo $val['title']  ?></div>
                             </div>
                             <!-- LAYER NR. 2 -->
                             <div class="tp-caption NotGeneric-SubTitle tp-resizeme rs-parallaxlevel-2" id="slide-3046-layer-15" data-x="left" data-hoffset="0"
@@ -35,7 +39,12 @@
                                 data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"}]'
                                 data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
                                 data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9; white-space: nowrap;text-transform:left;">
-                                <div class="h2" style="color: #323a45;">Digital marketing can incrase your ROI significantly.</div>
+                                <div class="h2" style="color: #323a45;"><?php 
+											$des= strip_tags($val['description']);
+											
+echo get_words($des,10);
+
+											  ?></div>
                                 <br>
                                 <a href="#" class="dmb-home medium-btn btn btn-fill" data-toggle="modal" data-target="#getAQuoteModal">GET A QUOTE
                                     <span class="icon-chevron-right"></span>
@@ -44,45 +53,8 @@
                             </div>
                         </li>
 
-
-                        <!-- SLIDE   -->
-                        <li data-index="rs-2972" data-transition="zoomin" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"
-                            data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000" data-rotate="0"
-                            data-saveperformance="off" data-title="Love it?" data-param1="" data-param2="" data-param3="" data-param4=""
-                            data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                            <!-- MAIN IMAGE -->
-                            <img src="public/images/slider-1.jpg" alt="" data-bgposition="center center" data-kenburns="on" data-duration="10000" data-ease="Linear.easeNone"
-                                data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 -500"
-                                data-offsetend="0 500" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                            <!-- LAYERS -->
-                            <!-- Mobile only text -->
-                            <div class="visible-xs caption-mobile">
-                                <div class="h1" style="color: #008ccb;">Great Website Adds Great Vaule</div>
-                                <div class="h2" style="color: #323a45;">Offer full service digital media solution to your clients.</div>
-                            </div>
-                            <!-- LAYER NR. 1 -->
-                            <div class="tp-caption NotGeneric-Title  tp-resizeme rs-parallaxlevel-3" id="slide-3046-layer-5" data-x="left" data-hoffset="0"
-                                data-y="center" data-voffset="0" data-width="none" data-height="none" data-whitespace="nowrap"
-                                data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"}]'
-                                data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
-                                data-paddingbottom="[60]" data-fontsize="[90,56,40,30]" data-paddingleft="[0,50,50,50]" style="z-index: 9; white-space: nowrap;text-transform:left;">
-                                <div class="h1" style="color: #008ccb;">Great Website
-                                    <br> Adds Great Value</div>
-                            </div>
-                            <!-- LAYER NR. 2 -->
-                            <div class="tp-caption NotGeneric-SubTitle tp-resizeme rs-parallaxlevel-2" id="slide-3046-layer-2" data-x="left" data-hoffset="0"
-                                data-y="center" data-voffset="120" data-width="none" data-height="none" data-whitespace="nowrap"
-                                data-type="text" data-responsive_offset="on" data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];","speed":2000,"to":"o:1;","delay":1500,"ease":"Power4.easeInOut"},{"delay":"wait","speed":1000,"to":"y:[100%];","mask":"x:inherit;y:inherit;","ease":"Power2.easeInOut"}]'
-                                data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]"
-                                data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 9; white-space: nowrap;text-transform:left;">
-                                <div class="h2" style="color: #323a45;">Offer full service digital media solution to your clients.</div>
-                                <br>
-                                <a href="#" class="dmb-home medium-btn btn btn-fill" data-toggle="modal" data-target="#getAQuoteModal">GET A QUOTE
-                                    <span class="icon-chevron-right"></span>
-                                </a>
-                                <a class="dmb-home medium-btn2 btn btn-nofill page-scroll" href="#portfolio-home">our portfolio</a>
-                            </div>
-                        </li>
+ <?php } ?>
+                    
                     </ul>
                     <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
                 </div>
@@ -92,7 +64,7 @@
     </div>
     <!--end carousel-->
     <!--clients section-->
-    <div class="clients">
+    <div class="clients" style="display:none";>
         <!-- clients item slider-->
         <div class="container">
             <div class="clients-logos owl-carousel owl-theme">
@@ -139,151 +111,23 @@
     <!--services Section-->
     <section class="bg-white o-hidden services dms-modern" id="services">
         <div class="container">
+        
             <!--section title -->
             <h2 class="b-clor">Services We Provide</h2>
             <hr class="dark-line" />
             <!--end section title -->
             <div class="row">
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="#">
-                            <span class="icon-palette"></span>
-                            <div>Design</div>
-                        </a>
-                        <p>Our comprehensive Online Marketing strategy will boost your website and traffic hence monthly sales.</p>
-                        <div class="service-overlay">
-                            <ul class="clearfix">
-                                <li>
-                                    <a href="logo-and-branding">
-                                        <i class="icon-palette"></i> Logo &amp; Branding</a>
-                                </li>
-                                <li>
-                                    <a href="website-design">
-                                        <i class="icon-laptop-phone"></i> Website Design</a>
-                                </li>
-                                <li>
-                                    <a href="mobile-app-design">
-                                        <i class="icon-phone"></i> Mobile App Design</a>
-                                </li>
-                                <li>
-                                    <a href="graphic-design">
-                                        <i class="icon-vector"></i> Graphic/Print Design</a>
-                                </li>
-                                <li>
-                                    <a href="video-production.html">
-                                        <i class="icon-camera"></i> Video Production</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End of .service-overlay -->
-                    </div>
-                </div>
-                <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="services.html#bm-development">
-                            <span class="icon-laptop-phone"></span>
-                            <div>Development</div>
-                        </a>
-                        <p>We design professional looking yet simple websites. Our designs are search engine and user friendly.</p>
-                        <div class="service-overlay">
-                            <ul class="clearfix">
-                                <li>
-                                    <a href="content-management-system.phpl">
-                                        <i class="icon-papers"></i> Content Management System</a>
-                                </li>
-                                <li>
-                                    <a href="mobile-app-development">
-                                        <i class="icon-smartphone-embed"></i> Mobile App Development</a>
-                                </li>
-                                <li>
-                                    <a href="ecommerce">
-                                        <i class="icon-cart"></i> eCommerce</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End of .service-overlay -->
-                    </div>
-                </div>
-                <!--end features box -->
+               <?php 
+									foreach($cmservicesData as $key=>$val){
+									?>
                 <!-- features box -->
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="box-green-border">
                         <a href="services#bm-online-marketing">
-                            <span class="icon-chart-growth"></span>
-                            <div>online marketing</div>
+                            <span class="<?php echo $val['icon_class'] ?>"></span>
+                            <div><?php echo $val['title'] ?></div>
                         </a>
-                        <p>From simple Content Management System to complex eCommerce developer, we cover it all.</p>
-                        <div class="service-overlay">
-                            <ul class="clearfix">
-                                <li>
-                                    <a href="search-engine-optimization">
-                                        <i class="icon-magnifier"></i> Search Engine Optimization</a>
-                                </li>
-                                <li>
-                                    <a href="pay-per-click">
-                                        <i class="icon-select2"></i> Pay-Per-Click</a>
-                                </li>
-                                <li>
-                                    <a href="email-marketing">
-                                        <i class="icon-envelope-open"></i> Email Marketing</a>
-                                </li>
-                                <li>
-                                    <a href="social-media-marketing">
-                                        <i class="icon-share"></i> Social Media Marketing</a>
-                                </li>
-                                <li>
-                                    <a href="display-marketing">
-                                        <i class="icon-news"></i> Display Marketing</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End of .service-overlay -->
-                    </div>
-                </div>
-                <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="services#bm-online-marketing">
-                            <span class="icon-puzzle"></span>
-                            <div>Business</div>
-                        </a>
-                        <p>From simple Content Management System to complex eCommerce developer, we cover it all.</p>
-                        <div class="service-overlay">
-                            <ul class="clearfix">
-                                <li>
-                                    <a href="digital-strategy">
-                                        <i class="icon-chart-settings"></i> Digital Strategy</a>
-                                </li>
-                                <li>
-                                    <a href="business-consulting">
-                                        <i class="icon-bubble-user"></i> Business Consulting</a>
-                                </li>
-                                <li>
-                                    <a href="content-writing">
-                                        <i class="icon-register"></i> Content Writing</a>
-                                </li>
-                                <li>
-                                    <a href="reporting">
-                                        <i class="icon-chart-growth"></i> Reporting</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- End of .service-overlay -->
-                    </div>
-                </div>
-                <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="services#bm-online-marketing">
-                            <span class="icon-cloud-upload"></span>
-                            <div>Technology</div>
-                        </a>
-                        <p>From simple Content Management System to complex eCommerce developer, we cover it all.</p>
+                        <p><?php echo $val['content'] ?></p>
                         <div class="service-overlay">
                             <ul class="clearfix">
                                 <li>
@@ -304,7 +148,9 @@
                     </div>
                 </div>
                 <!--end features box -->
+                 <?php } ?>
             </div>
+            
         </div>
     </section>
     <!--end services Section-->
@@ -567,32 +413,32 @@
                 <!--form for free quote-->
                 <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
                     <div class="customise-form">
-                        <form class="email_form" method="post">
+                        <form method="POST" id="contactForm"> 
                             <div class="form-element-wrapper">
                                 <h3>Get a Free Quote</h3>
                                 <div class="form-group customised-formgroup">
                                     <span class="icon-user"></span>
-                                    <input type="text" name="full_name" class="form-control" placeholder="Name">
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
                                 </div>
                                 <div class="form-group customised-formgroup">
                                     <span class="icon-envelope"></span>
-                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" id="email" class="form-control" placeholder=" Enter Email">
                                 </div>
                                 <div class="form-group customised-formgroup">
                                     <span class="icon-telephone"></span>
-                                    <input type="text" name="phone" class="form-control" placeholder="Phone">
+                                    <input type="text" name="phone"id=" phone" class="form-control" placeholder=" Enter Phone">
                                 </div>
                                 <div class="form-group customised-formgroup">
                                     <span class="icon-laptop"></span>
-                                    <input type="text" name="website" class="form-control" placeholder="Website">
+                                    <input type="text" name="website" id "website" class="form-control" placeholder=" Enter Website">
                                 </div>
                                 <div class="form-group customised-formgroup">
                                     <span class="icon-bubble"></span>
-                                    <textarea name="message" class="form-control" placeholder="Message"></textarea>
+                                    <textarea name="messages" id="messages" class="form-control" placeholder=" Enter Message"></textarea>
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-fill full-width">GET A QUOTE
+                                <button type="submit" class="btn btn-fill full-width">GET A QUOTE<i class="fa fa-spinner fa-spin fa-fw btn-loader" style="display: none;margin: 3px 8px 0 0;float: right;"></i>
                                     <span class="icon-chevron-right"></span>
                                 </button>
                             </div>
@@ -602,7 +448,7 @@
                 <!--end form for free quote-->
             </div>
         </div>
-    </section>
+    </section
     <!--end Choosing Us section-->
     <!--counter section-->
     <div class="clearfix"></div>
@@ -856,7 +702,7 @@
                                     </div>
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-bubble"></span>
-                                        <textarea name="message" class="form-control" placeholder="Message"></textarea>
+                                        <textarea name="messages" id="messages" class="form-control" placeholder="Message"></textarea>
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-fill full-width">GET A QUOTE
@@ -1396,3 +1242,69 @@
 </body>
 
 </html>
+<script type="text/javascript">
+       $('#contactForm').on("submit",function(e) {
+     
+          e.preventDefault(); // prevent submit form
+
+var formData= new FormData();
+var name= $('#name').val();
+formData.append('name',name);
+var email= $('#email').val();
+formData.append('email',email);
+
+var phone= $('#phone').val();
+formData.append('phone',phone);
+
+var website= $('#website').val();
+formData.append('website',website);
+var messages= $('#messages').val();
+formData.append('messages',messages);
+
+$.ajax({
+
+      type: "POST",
+      url: "contactajax.php",
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: 'JSON',
+      beforeSend: function() {
+      $('.btn-loader').show();
+    
+      },
+
+      success: function(response) {
+         $('.btn-loader').hide();
+      if(response.status==200){
+        $('.alert').show();
+        $('.alert').html(response.message);
+        $('.alert').addClass('alert-success');
+        $('.alert').removeClass('alert-danger');
+        $('#contactForm')[0].reset();
+      }else if(response.status==204){
+        $('.alert').show();
+        $('.alert').html(response.message);
+        $('.alert').addClass('alert-danger');
+      }else{
+        $('.alert').show();
+        $('.alert').html(response.message);
+        $('.alert').addClass('alert-warning');
+      }
+           /******setTimeout start******/
+               setTimeout(
+                  function(){
+                  $('.alert').hide();
+                  },3000
+                ); 
+        /******setTimeout end******/
+      }
+
+});
+
+
+
+        });
+       
+    </script>

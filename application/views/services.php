@@ -19,65 +19,44 @@
     <section class="bg-white o-hidden services services_single dms-modern" id="services">
         <div class="container">
             <!--section title -->
-            <h2 id="bm-design" class="b-clor">Design</h2>
+            <h2 id="bm-design" class="b-clor">Our major services</h2>
             <hr class="dark-line" />
             <!--end section title -->
             <div class="row service_sections">
+            
+              <?php 
+									foreach($cmservicesData as $key=>$val){
+									?>
                 <!-- features box -->
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <div class="box-green-border">
-                        <a href="logo-and-branding.html">
-                            <span class="icon-palette"></span>
-                            Logo &amp; Branding
+                        <a href="services#bm-online-marketing">
+                            <span class="<?php echo $val['icon_class'] ?>"></span>
+                            <div><?php echo $val['title'] ?></div>
                         </a>
-                        <p>We design professional looking yet simple websites. Our designs are search engine and user friendly.</p>
+                        <p><?php echo $val['content'] ?></p>
+                        <div class="service-overlay">
+                            <ul class="clearfix">
+                                <li>
+                                    <a href="domain">
+                                        <i class="icon-magnifier"></i> Domain</a>
+                                </li>
+                                <li>
+                                    <a href="hosting">
+                                        <i class="icon-server"></i> Hosting</a>
+                                </li>
+                                <li>
+                                    <a href="big-data-analysis">
+                                        <i class="icon-pie-chart"></i> Big Data Analysis</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End of .service-overlay -->
                     </div>
                 </div>
                 <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="website-design.html">
-                            <span class="icon-laptop-phone"></span>
-                            Website Design
-                        </a>
-                        <p>From simple Content Management System to complex eCommerce developer, we cover it all.</p>
-                    </div>
-                </div>
-                <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="mobile-app-design.html">
-                            <span class="icon-phone"></span>
-                            Mobile App Design
-                        </a>
-                        <p>Our comprehensive Online Marketing strategy will boost your website and traffic hence monthly sales.</p>
-                    </div>
-                </div>
-                <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="graphic-design.html">
-                            <span class="icon-vector"></span>
-                            Graphic/Print design
-                        </a>
-                        <p>We design professional looking yet simple websites. Our designs are search engine and user friendly.</p>
-                    </div>
-                </div>
-                <!--end features box -->
-                <!-- features box -->
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="box-green-border">
-                        <a href="video-production.html">
-                            <span class="icon-camera"></span>
-                            Video Production
-                        </a>
-                        <p>Our comprehensive Online Marketing strategy will boost your website and traffic hence monthly sales.</p>
-                    </div>
-                </div>
-                <!--end features box -->
+                 <?php } ?>
+            
             </div>
             <!-- End of .service_sections -->
             <!--section title -->

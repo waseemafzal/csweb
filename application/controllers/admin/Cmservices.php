@@ -37,7 +37,6 @@ class Cmservices extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('title', ' title','required');
 		$this->form_validation->set_rules('content', ' content','required');
-		$this->form_validation->set_rules('icon_class', ' icons','required');
 		if ($this->form_validation->run() == FALSE)
                 {
                        		$response['status']=204;
@@ -50,12 +49,19 @@ class Cmservices extends CI_Controller {
                    
 				  //  //mata_description
 				  
-				  $banner='noimg.png';
+				   $banner='noimg.png';
 				  if(isset($_FILES['banner']['name'])){
 					 // print_r($_FILES);exit;
 					$banner=  $this->model->do_upload();
 					  
-					  }
+					  }else{
+						  if($id==''){
+							  $response['status']=204;
+                       		$response['message']='banner field is required';
+							echo json_encode($response);exit;
+							  }
+
+						  }
 				   $data=array('title'=>$title,'content'=>$content,'banner'=>$banner,'icon_class'=>$icon_class,'meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_keywords'=>$meta_keywords); 
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
