@@ -16,282 +16,88 @@
     <section class="page-section bg-white o-hidden blog-content">
         <div class="container relative">
             <div class="row">
+            
                 <!-- Content -->
                 <div class="col-sm-8">
+                  <?php 
+									foreach($BlogsData as $key=>$val){
+									?>
                     <!-- Post -->
                     <div class="blog-item">
                         <!-- Post Title -->
                         <h2 class="blog-item-title font-alt">
-                            <a href="blog-media-gallery.html">Post with media gallery</a>
+                            <a href="blog-media-gallery"><?php echo $val['title'] ?></a>
                         </h2>
                         <!-- Date, Categories, Author, Comments -->
                         <div class="blog-item-data">
-                            <a href="#">
-                                <i class="icon-calendar-full"></i> 31 August, 2016</a>
+                         
+                               <a> <i class="icon-calendar-full"></i><?php echo $val['date'] ?></a>
                             <span class="separator">&nbsp;</span>
-                            <a href="#">
-                                <i class="icon-list4"></i> Design Category</a>
+                            
+                               <a> <i class="icon-list4"></i><?php echo $val ['category'] ?></a>
                             <span class="separator">&nbsp;</span>
                             <br class="visible-xs">
-                            <a href="#">
-                                <i class="icon-user"></i> Admin</a>
+                               <a> <i class="icon-user"></i> Admin</a>
                             <span class="separator">&nbsp;</span>
-                            <a href="#">
-                                <i class="icon-bubbles"></i> Comments (2)</a>
                         </div>
                         <!-- Media Gallery -->
                         <div class="blog-media">
-                            <ul class="clearlist owl-carousel">
-                                <li class="item">
-                                    <img src="images/blog/blog-img-standard-1.jpg" alt="" /> </li>
-                                <li class="item">
-                                    <img src="images/blog/blog-img-standard-2.jpg" alt="" /> </li>
-                                <li class="item">
-                                    <img src="images/blog/blog-img-standard-3.jpg" alt="" /> </li>
-                            </ul>
+                            <img src="<?=base_url()?>upload/<?php echo $val['image'] ?>" alt="" />
                         </div>
                         <!-- Text Intro -->
                         <div class="blog-item-body">
-                            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris non laoreet dui. Morbi lacus
-                                massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor
-                                molestie in nec massa. </p>
+                            <p><?php 
+							$description = strip_tags($val ['description']);
+							echo  substr($description,0,500) ?></p>
                         </div>
                         <!-- Read More Link -->
                         <div class="blog-item-foot">
-                            <a href="blog-media-gallery.html" class="medium-btn3 btn btn-nofill green-text">Read More</a>
+                            <a href="blog-details?id=<?php echo $val['id'] ?>" class="medium-btn3 btn btn-nofill green-text">Read More</a>
                         </div>
                     </div>
                     <!-- End Post -->
-                    <!-- Post -->
-                    <div class="blog-item">
-                        <!-- Post Title -->
-                        <h2 class="blog-item-title font-alt">
-                            <a href="blog-video-post.html">Video post only</a>
-                        </h2>
-                        <!-- Date, Categories, Author, Comments -->
-                        <div class="blog-item-data">
-                            <a href="#">
-                                <i class="icon-calendar-full"></i> 31 August, 2016</a>
-                            <span class="separator">&nbsp;</span>
-                            <a href="#">
-                                <i class="icon-list4"></i> Design Category</a>
-                            <span class="separator">&nbsp;</span>
-                            <br class="visible-xs">
-                            <a href="#">
-                                <i class="icon-user"></i> Admin</a>
-                            <span class="separator">&nbsp;</span>
-                            <a href="#">
-                                <i class="icon-bubbles"></i> Comments (2)</a>
-                        </div>
-                        <!-- Media Gallery -->
-                        <div class="blog-media embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rrT6v5sOwJg"></iframe>
-                        </div>
-                        <!-- Text Intro -->
-                        <div class="blog-item-body">
-                            <p> Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id
-                                sapien tempor molestie in nec massa. </p>
-                        </div>
-                        <!-- Read More Link -->
-                        <div class="blog-item-foot">
-                            <a href="blog-video-post.html" class="medium-btn3 btn btn-nofill green-text">Read More</a>
-                        </div>
-                    </div>
-                    <!-- End Post -->
-                    <!-- Post -->
-                    <div class="blog-item">
-                        <!-- Post Title -->
-                        <h2 class="blog-item-title font-alt">
-                            <a href="blog-details.html">How to design effective teams?</a>
-                        </h2>
-                        <!-- Date, Categories, Author, Comments -->
-                        <div class="blog-item-data">
-                            <a href="#">
-                                <i class="icon-calendar-full"></i> 31 August, 2016</a>
-                            <span class="separator">&nbsp;</span>
-                            <a href="#">
-                                <i class="icon-list4"></i> Design Category</a>
-                            <span class="separator">&nbsp;</span>
-                            <br class="visible-xs">
-                            <a href="#">
-                                <i class="icon-user"></i> Admin</a>
-                            <span class="separator">&nbsp;</span>
-                            <a href="#">
-                                <i class="icon-bubbles"></i> Comments (2)</a>
-                        </div>
-                        <!-- Image -->
-                        <div class="blog-media">
-                            <a href="blog-details.html">
-                                <img src="images/blog/blog-img-1a.jpg" alt="" />
-                            </a>
-                        </div>
-                        <div class="blog-item-body">
-                            <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                                ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
-                                exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis
-                                autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
-                                dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-                                praesent luptatum. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet
-                                doming id quod mazim placerat facer possim assum. Ut wisi enim ad minim venia. </p>
-                        </div>
-                        <!-- Read More Link -->
-                        <div class="blog-item-foot">
-                            <a href="blog-details.html" class="medium-btn3 btn btn-nofill green-text">Read More</a>
-                        </div>
-                    </div>
-                    <!-- End Post -->
-                    <!-- Pagination -->
-                    <ul class="pagination top-margin0">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">
-                                <span class="icon-chevron-left"></span>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">
-                                <span class="icon-chevron-right"></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- End Pagination -->
+                   <?php } ?>
                 </div>
                 <!-- End Content -->
                 <!-- Sidebar -->
                 <div class="col-sm-4 col-md-3 col-md-offset-1 sidebar">
                     <!-- Search Widget -->
-                    <div class="widget">
-                        <form class="form-inline form">
-                            <div class="search-wrap">
-                                <button class="search-button animate" type="submit" title="Start Search">
-                                    <i class="icon-magnifier"></i>
-                                </button>
-                                <input type="text" class="form-control search-field" placeholder="Search...">
-                            </div>
-                        </form>
-                    </div>
+                    
                     <!-- End Search Widget -->
                     <!-- Widget -->
                     <div class="widget">
                         <h5 class="widget-title font-alt">Recent Posts</h5>
                         <div class="widget-body">
                             <ul class="clearlist widget-posts">
+                            <?php
+							foreach ($recentBlogs as $key=>$val){
+							 ?>
                                 <li class="clearfix">
                                     <div class="widget-posts-descr">
-                                        <a href="#" title="">How to design effective teams?</a> 31 August, 2016 </div>
+                                        <a href="#" title=""><?php echo $val['title'] ?></a> <?php echo $val['date'] ?> </div>
                                 </li>
-                                <li class="clearfix">
-                                    <div class="widget-posts-descr">
-                                        <a href="#" title="">Eleviate design through trainingt</a> 2 September, 2016 </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="widget-posts-descr">
-                                        <a href="#" title="">Design is not a department but everything</a> 6 July, 2016 </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="widget-posts-descr">
-                                        <a href="#" title="">How to design a perfect landing page for PPC</a> 5 May, 2016 </div>
-                                </li>
+                                
+                                <?php  }?>
+                              
                             </ul>
                         </div>
                     </div>
                     <!-- End Widget -->
                     <!-- Widget -->
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Recent Comments</h5>
-                        <div class="widget-body">
-                            <ul class="clearlist widget-comments">
-                                <li>
-                                    <span>Tony Stark</span>
-                                    <a href="#" title="">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat...</a>
-                                </li>
-                                <li>
-                                    <span>Tony Stark</span>
-                                    <a href="#" title="">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat...</a>
-                                </li>
-                                <li>
-                                    <span>Tony Stark</span>
-                                    <a href="#" title="">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat...</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                   
                     <!-- End Widget -->
                     <!-- Widget -->
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Categories</h5>
-                        <div class="widget-body">
-                            <ul class="clearlist widget-menu">
-                                <li>
-                                    <a href="#" title="">Design (4)</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Development (2)</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Online Marketing (10)</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Mobile App (3)</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">Website (3)</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                     <!-- End Widget -->
                     <!-- Widget -->
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Tags</h5>
-                        <div class="widget-body">
-                            <div class="tags">
-                                <a href="#">Design</a>
-                                <a href="#">Development</a>
-                                <a href="#">Social Media</a>
-                                <a href="#">SEO</a>
-                                <a href="#">PPC</a>
-                                <a href="#">Online Marketing</a>
-                                <a href="#">Back Office</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Widget -->
-                    <!-- Widget -->
-                    <div class="widget">
-                        <h5 class="widget-title font-alt">Archive</h5>
-                        <div class="widget-body">
-                            <ul class="clearlist widget-menu">
-                                <li>
-                                    <a href="#" title="">May 2017</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">April 2017</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">February 2017</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">April 2017</a>
-                                </li>
-                                <li>
-                                    <a href="#" title="">January 2017</a>
-                                </li>
-                            </ul>
-                        </div>
+                    
+                   
                     </div>
                     <!-- End Widget -->
                 </div>
                 <!-- End Sidebar -->
             </div>
+           
         </div>
     </section>
     <!-- ++++ end blog Standard content ++++ -->

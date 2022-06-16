@@ -1,6 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+//
+ define('TBL_SETTING', 'tbl_settings');
+
+
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

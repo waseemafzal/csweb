@@ -48,13 +48,14 @@ class Settings extends CI_Controller {
                 }
                 else
                 {
+					
+					
                    
-				  //  //mata_description
+				$data=array('phone'=>$phone,'address'=>$address,'email'=>$email,'description'=>$description,'whatsapp'=>$whatsapp,'facebook'=>$facebook,'youtube'=>$youtube,'twitter'=>$twitter,'linkedin'=>$linkedin); 
 				  
-				  $image='noimg.png';
 				  if(isset($_FILES['image']['name'])){
 					 // print_r($_FILES);exit;
-					$image=  $this->model->do_upload();
+					$data['image']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -64,7 +65,9 @@ class Settings extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('image'=>$image,'phone'=>$phone,'address'=>$address,'whatsapp'=>$whatsapp,'facebook'=>$facebook,'youtube'=>$youtube,'twitter'=>$twitter,'linkedin'=>$linkedin); 
+						  
+						  
+				    
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

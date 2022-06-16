@@ -50,7 +50,7 @@ class Contactus extends CI_Controller {
                 else
                 {
                    
-				  // print_r($_POST);exit;
+				   //print_r($_POST);exit;
 				   $data=array('name'=>$name,'email'=>$email,'phone'=>$phone,'website'=>$website,'messages'=>$messages); 
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 

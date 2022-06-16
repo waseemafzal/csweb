@@ -53,7 +53,7 @@
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
-            <div id="content">
+           <div id="content">
 
                <?php include_once"topnav.php"; ?>
             <!-- End of Topbar -->
@@ -65,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#cmservicesModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add CmsServices
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -160,19 +160,18 @@ echo get_words($des,10);
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       <div class="row">
-                                        <div class="col-md-6 col-xs-12">
+                      
+                                        <div class="col-md-12 col-xs-12">
                                             <label>Title</label>
                                             <input type="text" id="text_title" name="title"  class="form-control" >
                                             
                                         </div>
                                   
-                                        <div class="col-md-6 col-xs-12">
+                                       <div class="col-md-12 col-xs-12">
                                             <label>Content</label>
-                                            <input type="text" id="text_content" name="content"  class="form-control" >
-                                             
+                                            <textarea id="tex_content" name="content"  class="form-control"rows="5" ></textarea>
                                         </div>
-                                        </div>
+                                       
                                         
                                         <div class="row">
                                         <div class="col-md-6 col-xs-12">
@@ -186,35 +185,30 @@ echo get_words($des,10);
                                             <input type="text" id="text_icon" name="icon_class"  class="form-control" >
                                              
                                         </div>
+                                        </div>
                                         
                                         
-                                  </div>
+                                 
                                   <!--(`id`, ``, `content`, `banner`, `icon_class`, `meta_title`, `meta_description`, `meta_keywords`)-->
-                                  <div class="row">
-                                  <div class="col-md-6 col-xs-12" style="display: none>
+                                
+                                  <div class="col-md-6 col-xs-12" style="display: none">
                                             <label>Meta_title</label>
                                             <input type="text" id="text_titles" name="meta_title"  class="form-control" >
                                             
                                         </div>
-                                        <div class="col-md-6 col-xs-12" style="display: none>
+                                        <div class="col-md-6 col-xs-12" style="display: none">
                                             <label>Meta_keywords</label>
                                             <input type="text" id="text_keywords" name="meta_keywords"  class="form-control" >
                                              
                                         </div>
                                         
                                         
-                                        <div class="col-md-12 col-xs-12" style="display: none>
+                                        <div class="col-md-12 col-xs-12" style="display: none">
                                             <label>Mata_description</label>
                                             <textarea id="text_description" name="meta_description"  class="form-control"rows="5" ></textarea>
                                             
                                         </div>
-                                       
-                                     </div>
-                                   
-                    
-
-                </div>
-               
+                          
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                      <button type="submit" class="btn btn-success"><i class="fa fa-spinner fa-spin" id="loader" style="font-size:24px;display: none"></i> Save </button>
@@ -312,7 +306,9 @@ var other_data = $('#form_add_update').serializeArray();
 	 if($('#banner').val()!=''){
 		formdata.append("banner", document.getElementById('banner').files[0]);
 		}
+		
   });
+  formdata.append("content", CKEDITOR.instances.tex_content.getData());
 
 $.ajax({
   type: "POST",
@@ -384,7 +380,9 @@ $.ajax({
 {"status":200,"data":{"id":"2","name":"ferter","product":"Bus","price":"-74","description":"ertfawert"}}
 */
 $('#text_title').val(response.data.title);
-$('#text_content').val(response.data.content);
+
+CKEDITOR.instances.tex_content.setData(response.data.content);
+
 $('#text_banner').val(response.data.banner);
 $('#text_icon').val(response.data.icon_class);
 $('#text_titles').val(response.data.meta_title);
@@ -403,4 +401,11 @@ $('#cmservicesModal').modal('show');
 
 }
 
+</script>
+<script src="public/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript">
+			$(function () {
+				CKEDITOR.replace('tex_content');
+			});
+			
 </script>

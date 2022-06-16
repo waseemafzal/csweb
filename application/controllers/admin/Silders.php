@@ -50,10 +50,10 @@ class Silders extends CI_Controller {
                    
 				  //  //mata_description
 				  
-				  $image='noimg.png';
+				  $data=array('title'=>$title,'description'=>$description); 
 				  if(isset($_FILES['image']['name'])){
 					 // print_r($_FILES);exit;
-					$image=  $this->model->do_upload();
+					 $data['image']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -63,7 +63,9 @@ class Silders extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('title'=>$title,'description'=>$description,'image'=>$image); 
+						  
+						  
+				   
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

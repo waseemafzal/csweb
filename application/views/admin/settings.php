@@ -63,9 +63,9 @@
 
                     <!-- Page Heading -->
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
-                   <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#settingsModal">
+                   <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#settingsModal" style="display: none">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add Setting
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -83,6 +83,7 @@
                                              <th>Phone</th>
                                             <th>Address</th>
                                             <th>Email</th> 
+                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -96,9 +97,14 @@
                                             <td><?php echo $val['phone']  ?></td>
                                             <td><?php echo $val['address']  ?></td>
                                             <td><?php echo $val['email']  ?></td>
+                                            						                                  <td><?php
+													$des= strip_tags($val['description']);
+											
+echo get_words($des,10);
+?></td>
                                             <td><a class="btn btn-info btn-xs" onClick="editRecord('<?php echo  $val['id'] ?>')">
                                             <i class="fa fa-pen"></i></a>
-                                             <a onClick="deleteRecord('<?php echo  $val['id'] ?>')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a></td>
+                                             </td>
                                         </tr>
                                        <?php } ?>
                                     </tbody>
@@ -150,57 +156,63 @@
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
                        <div class="row">
-                                       <div class="col-md-6 col-xs-12">
+                                       <div class="col-md-4 col-xs-12">
                                             <label>Image</label>
                                             <input type="file" id="image" name="image"  class="form-control">
                                             <div id="imgdiv" class="col-xs-12"></div>
                                         </div>
-                                         <div class="col-md-6 col-xs-12">
+                                         <div class="col-md-4 col-xs-12">
                                             <label>Phpne</label>
                                             <input type="text" id="phone" name="phone"  class="form-control">
                                             
                                         </div>
-                                        </div>
-                                   <div class="row">
-                                        <div class="col-md-6 col-xs-12">
+                                    
+                                        <div class="col-md-4 col-xs-12">
                                             <label>Adress</label>
                                             <input type="text" id="address" name="address"  class="form-control">
                                         </div>
-                                        
-                                         <div class="col-md-6 col-xs-12">
+                                        </div>
+                                        <div class="row">
+                                         <div class="col-md-12 col-xs-12">
                                             <label>Email</label>
                                             <input type="text" id="email" name="email"  class="form-control" >
                                             
                                         </div>
-                                        </div>
+                                               <div class="col-md-12 col-xs-12">
+                                            <label>description</label>
+                                            <textarea id="description" name="description"  class="form-control"rows="5" ></textarea>
+                                               
+
+                </div>
+                                        
                                          <div class="row">
-                                        <div class="col-md-6 col-xs-12">
+                                        <div class="col-md-4 col-xs-12">
                                             <label>Whatsapp</label>
                                             <input type="text" id="whatsapp" name="whatsapp"  class="form-control" >
                                         </div>
                                         
-                                         <div class="col-md-6 col-xs-12">
+                                         <div class="col-md-4 col-xs-12">
                                             <label>Facebook</label>
                                             <input type="text" id="facebook" name="facebook"  class="form-control" >
                                             
                                         </div>
-                                        </div>
-                                        <div class="row">
-                                        <div class="col-md-6 col-xs-12">
+                                        
+                                        <div class="col-md-4 col-xs-12">
                                             <label>youtube</label>
                                              <input type="text" id="youtube" name="youtube"  class="form-control">
                                         </div>
-                                        
+                                          </div>
+                                        <div class="row">
                                          <div class="col-md-6 col-xs-12">
                                             <label>twitter</label>
-                                            <input type="text" id="twitter" name="twitter"  class="form-control" >
+                                            <input type="text" id="twitter" name="twitter"  class="form-control">
                                             
                                         </div>
-                                        </div>
-                                         <div class="col-md-12 col-xs-12">
+                                         <div class="col-md-6 col-xs-12">
                                             <label>Linkedin</label>
-                                            <input type="text" id="linkedin" name="linkedin"  class="form-control" >
+                                            <input type="text" id="linkedin" name="linkedin"  class="form-control">
                                             
+                                        </div>
                                         </div>
                
                 <div class="modal-footer">
@@ -303,6 +315,7 @@ if($('#image').val()!=''){
 		
 
 //formdata.append("description", CKEDITOR.instances.description.getData());
+formdata.append("description", CKEDITOR.instances.description.getData());
 
 
 $.ajax({
@@ -378,6 +391,7 @@ $.ajax({
 $('#phone').val(response.data.phone);
 $('#address').val(response.data.address);
 $('#email').val(response.data.email);
+CKEDITOR.instances.description.setData(response.data.description);
 $('#whatsapp').val(response.data.whatsapp);
 $('#facebook').val(response.data.facebook);
 $('#youtube').val(response.data.youtube);
@@ -400,5 +414,12 @@ $('#imgdiv').html(img);
 
 }
 
+</script>
+<script src="public/ckeditor/ckeditor.js"></script>
+
+        <script type="text/javascript">
+			$(function () {
+				CKEDITOR.replace('description');
+			});
 </script>
 

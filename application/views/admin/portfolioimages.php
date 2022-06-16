@@ -65,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#portfolioimagesModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add PortfolioImage
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->

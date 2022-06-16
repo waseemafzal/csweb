@@ -1,6 +1,10 @@
 <?php include_once"includes/header.php" ?>
 <!--end header-->
- 
+ <style>
+ li {
+    list-style: inherit;
+}
+ </style>
     <!-- ++++ banner ++++ -->
     <section class="banner  o-hidden banner-inner join-our-team-banner">
         <div class="container">
@@ -16,7 +20,7 @@
     </section>
     <!-- ++++ end banner ++++ -->
     <!-- ++++  join-our-team ++++ -->
-    <section id="join-our-team" class="bg-white o-hidden common-form-section join-our-team">
+    <section id="join-our-team" class="bg-white o-hidden  join-our-team">
         <div class="container">
             <!--section title -->
             <h2 class="b-clor">Why Join Our Team?</h2>
@@ -79,61 +83,33 @@
     </section>
     <!-- ++++ end join our team ++++ -->
     <!-- ++++  available-positions ++++ -->
-    <section class="bg-white o-hidden common-form-section available-positions">
+    <section class="bg-white o-hidden  available-positions">
         <div class="container">
             <!--section title -->
             <h2 class="b-clor">Available Positions</h2>
             <hr class="dark-line" />
+            <?php 
+									foreach($CareersData as $key=>$val){
+									?>
             <div class="row">
-                <div class="col-sm-6 col-md-4">
+                <div class="col-md-12 col-xs-12">
                     <div class="content">
-                        <h3> senior designer
-                            <span>department: design</span>
+                        <h3> <?php echo $val['title']  ?>
+                        <span><?php echo $val['positions']  ?></span>
+                            <span><?php echo $val['department']  ?></span>
                         </h3>
                         <div class="inner_content">
-                            <p class="regular-text">Lorem ipsum dolor sit amet, consec tetuer adipiscing elit, sed diam nonum my nibh euismod tincidunt
-                                ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum iriure dolor in hend rerit
-                                in vulputate.</p>
-                            <a class="btn btn-fill proDetModal">view details</a>
+                            <p class="regular-text"><?php echo $val ['description'] ?></p>
+                            <a href="apply-from?job_id=<?php echo $val['id']  ?>" class="btn btn-fill proDetModal">view details</a>
                         </div>
                         <!-- End of .inner_content -->
                     </div>
                     <!-- End of .content -->
                 </div>
                 <!-- End of .col-sm-4 -->
-                <div class="col-sm-6 col-md-4">
-                    <div class="content">
-                        <h3> accountant
-                            <span>department: finance</span>
-                        </h3>
-                        <div class="inner_content">
-                            <p class="regular-text">Lorem ipsum dolor sit amet, consec tetuer adipiscing elit, sed diam nonum my nibh euismod tincidunt
-                                ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum iriure dolor in hend rerit
-                                in vulputate.</p>
-                            <a class="btn btn-fill proDetModal">view details</a>
-                        </div>
-                        <!-- End of .inner_content -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
-                <div class="col-sm-6 col-md-4">
-                    <div class="content">
-                        <h3> social media manager
-                            <span>department: marketing</span>
-                        </h3>
-                        <div class="inner_content">
-                            <p class="regular-text">Lorem ipsum dolor sit amet, consec tetuer adipiscing elit, sed diam nonum my nibh euismod tincidunt
-                                ut laoreet dolore magna aliquam erat volutpat. Duis autem vel eum iriure dolor in hend rerit
-                                in vulputate.</p>
-                            <a class="btn btn-fill proDetModal">view details</a>
-                        </div>
-                        <!-- End of .inner_content -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
+              
             </div>
+             <?php } ?>
             <!-- End of .row -->
         </div>
         <!-- End of .container -->

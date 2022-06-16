@@ -48,12 +48,12 @@ class Portfolioimages extends CI_Controller {
                 else
                 {
                    
-				  //  //mata_description
+
+				   $data=array('port_id'=>$port_id); 
 				  
-				  $image='noimg.png';
 				  if(isset($_FILES['image']['name'])){
 					 // print_r($_FILES);exit;
-					$image=  $this->model->do_upload();
+					$data['image']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -63,7 +63,10 @@ class Portfolioimages extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('port_id'=>$port_id,'image'=>$image); 
+				  
+						  
+						  
+				   
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

@@ -1,4 +1,52 @@
+
+	
+ 
 <?php include_once"includes/header.php" ?>
+<style>
+	.portfolio
+	.img_container img {
+    width: 100%;
+    height: 200px;
+	padding:10px;
+	border-radius: 7px;
+    box-shadow: 1px 3px 5px 3px #515e44;
+	}
+	h3 {
+    font-size: 24px;
+    line-height: 30px;
+    /* margin-left: 90px; */
+    text-align: center;
+}
+
+
+.blog-content  .blog-img{ 
+height: 200px;
+    width: 100%;
+	}
+	
+.blog-content .equalheight{ margin:0 !important;}	
+.blog-content  {
+
+   
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 1px 3px 5px 3px #515e44;
+}
+.dmb-home.news .box-green-border {
+    padding-left: 0;
+    padding-top: 41px;
+    padding-bottom: 33px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.case-studies-carousel .carousel-inner .item {
+    padding: 10px 0 60px;
+}
+
+
+
+	</style>
+
     <!-- SLIDER -->
     <div class="main-slider">
     
@@ -172,211 +220,183 @@ echo get_words($des,10);
             <div class="grid clearfix row">
                 <!-- Items for portfolio 
                 currently using 12 items. More Items can be added. -->
-                <div class="a2 a1 grid-item">
+                  <?php 
+									foreach($portfolioData as $key=>$val){
+										$class='';
+										$str = $val['category'];
+									if (strpos($str, 'Website') !== false) {
+										   $class='a1';
+										}elseif (strpos($str, 'Logo') !== false) {
+										   $class='a2';
+										}elseif (strpos($str, 'Mobile App') !== false) {
+										   $class='a3';
+										}elseif (strpos($str, 'Social Media') !== false) {
+										   $class='a4';
+										}
+										
+									?>
+                                  
+               
+                <div class="<?=$class?> grid-item">
+                
                     <div class="img_container">
-                        <img src="public/images/portfolio/portfolio-one.jpg" alt="port_img" class="img-responsive">
+                        <img src="upload/<?php echo $val['image']  ?>" alt="port_img" class="img-responsive">
+                        
                         <div class="overlay">
-                            <a class="btn btn-nofill proDetModal1">Discover</a>
+                            <a class="btn btn-nofill" data-toggle="modal" data-target="#myModal<?php echo $val['id'] ?>">Discover</a>
                         </div>
                         <!-- End of .overlay -->
                     </div>
                     <!-- End of .img_container -->
                     <div class="text-content">
                         <h3>
-                            <a class="proDetModal proDetModal1">Diet Hospital
-                                <span>Website</span>
+                            <a class="proDetModal proDetModal1">
+							<?php echo $val['title'] ?>
+                                
+                                <span><?php echo $val['category'] ?></span>
                             </a>
                         </h3>
                     </div>
+                  
                 </div>
+                
+                 
                 <!-- End of .grid-item -->
-                <div class="a3 grid-item">
-                    <div class="img_container">
-                        <img src="public/images/portfolio/portfolio-two.jpg" alt="port_img" class="img-responsive">
-                        <div class="overlay video_popup">
-                            <a href="https://www.youtube.com/watch?v=uH0UQl5JC2c" class="video-popup">
-                                <span class="icon-play-circle"></span>
-                            </a>
+                <div class="modal fade verticl-center-modal" id="myModal<?php echo $val['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal1">
+        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="icon-cross-circle"></span>
+                </button>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- main slider carousel -->
+                            <div id="slider">
+                                <div id="carousel-bounding-box">
+                                    <div id="myCarousel" class="carousel slide myCarousel">
+                                        <!-- main slider carousel items -->
+                                        <div class="carousel-inner">
+                                            <div class="active item" data-slide-number="0">
+                                                <img src="upload/<?php echo $val['image']  ?>" alt="images" class="img-responsive">
+                                            </div>
+                                            <div class="item" data-slide-number="1">
+                                                <img src="upload/<?php echo $val['image']  ?>" alt="images" class="img-responsive">
+                                            </div>
+                                            <div class="item" data-slide-number="2">
+                                                <img src="upload/<?php echo $val['image']  ?>" alt="images" class="img-responsive">
+                                            </div>
+                                            <div id="slider-thumbs">
+                                                <!-- thumb navigation carousel items -->
+                                                <ul class="list-inline  thumb-list">
+                                                    <li>
+                                                        <a id="carousel-selector-0" class="carousel-selector selected">
+                                                            <img src="upload/<?php echo $val['image']  ?>" class="img-responsive"
+                                                                alt=""> </a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="carousel-selector-1" class="carousel-selector">
+                                                            <img src="upload/<?php echo $val['image']  ?>" class="img-responsive"
+                                                                alt=""> </a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="carousel-selector-2" class="carousel-selector">
+                                                            <img src="upload/<?php echo $val['image']  ?>" class="img-responsive"
+                                                                alt=""> </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <!-- End of .overlay -->
-                    </div>
-                    <!-- End of .img_container -->
-                    <div class="text-content">
-                        <h3>
-                            <a class="proDetModal proDetModal2">Jet Airplane
-                                <span>Website</span>
-                            </a>
-                        </h3>
-                    </div>
-                </div>
-                <!-- End of .grid-item -->
-                <div class="a2 a1 grid-item">
-                    <div class="img_container">
-                        <img src="public/images/portfolio/portfolio-three.jpg" alt="port_img" class="img-responsive">
-                        <div class="overlay">
-                            <a class="btn btn-nofill proDetModal3">Discover</a>
+                        <div class="col-md-5">
+                            <div class="port-modal-content">
+                                <p class="gray-text"><?php echo $val['category'] ?></p>
+                                <h2 class="b-clor"><?php echo $val['title'] ?></h2>
+                                <p class="regular-text"><?php echo $val['description'] ?>.</p>
+                                
+                            </div>
+                            
+                            <a href="index.php" class="medium-btn2  btn btn-fill">Launch website</a>
                         </div>
-                        <!-- End of .overlay -->
-                    </div>
-                    <!-- End of .img_container -->
-                    <div class="text-content">
-                        <h3>
-                            <a class="proDetModal proDetModal3">Spring Water Service
-                                <span>Website</span>
-                            </a>
-                        </h3>
                     </div>
                 </div>
-                <!-- End of .grid-item -->
-                <div class="a3 a4 grid-item">
-                    <div class="img_container">
-                        <img src="public/images/portfolio/portfolio-four.jpg" alt="port_img" class="img-responsive">
-                        <div class="overlay">
-                            <a class="btn btn-nofill proDetModal4">Discover</a>
-                        </div>
-                        <!-- End of .overlay -->
-                    </div>
-                    <!-- End of .img_container -->
-                    <div class="text-content">
-                        <h3>
-                            <a class="proDetModal proDetModal4">Second Language
-                                <span>Website</span>
-                            </a>
-                        </h3>
-                    </div>
-                </div>
-                <!-- End of .grid-item -->
-                <div class="a2 a1 grid-item">
-                    <div class="img_container">
-                        <img src="public/images/portfolio/portfolio-five.jpg" alt="port_img" class="img-responsive">
-                        <div class="overlay">
-                            <a class="btn btn-nofill proDetModal5">Discover</a>
-                        </div>
-                        <!-- End of .overlay -->
-                    </div>
-                    <!-- End of .img_container -->
-                    <div class="text-content">
-                        <h3>
-                            <a class="proDetModal proDetModal5">Home Buy and Sell
-                                <span>Website</span>
-                            </a>
-                        </h3>
-                    </div>
-                </div>
-                <!-- End of .grid-item -->
-                <div class="a3 a4 a1 grid-item">
-                    <div class="img_container">
-                        <img src="public/images/portfolio/portfolio-six.jpg" alt="port_img" class="img-responsive">
-                        <div class="overlay">
-                            <a class="btn btn-nofill proDetModal6">Discover</a>
-                        </div>
-                        <!-- End of .overlay -->
-                    </div>
-                    <!-- End of .img_container -->
-                    <div class="text-content">
-                        <h3>
-                            <a class="proDetModal proDetModal6">Technical University
-                                <span>Website</span>
-                            </a>
-                        </h3>
-                    </div>
-                </div>
-                <!-- End of .grid-item -->
+            </div>
+        </div>
+    </div>
+                    <!-- End of modal -->
+ <?php } ?>
+               
                 <!-- to add more items to the portfolio section copy and paste any
                 of the items underneath the last item -->
             </div>
             <!-- End of .grid -->
             <div class="text-center port-dms">
-                <a href="portfolio.html" class="btn btn-fill full-width">Discover more</a>
+                <a href="portfolio" class="btn btn-fill full-width">Discover more</a>
+                 
             </div>
         </div>
     </section>
     <!--end portfolio section-->
     <!--case studies section-->
     <section class="case-studies-section" id="case_studies">
+    <h1 class="b-clor" style="margin-left:100px;">Tastingmonail</h1>
+   
         <div id="case-studies-carousel" class="case-studies-carousel carousel slide" data-ride="carousel">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#case-studies-carousel" data-slide-to="0" class="active" id="slide-0"></li>
-                <li data-target="#case-studies-carousel" data-slide-to="1" id="slide-1"></li>
-                <li data-target="#case-studies-carousel" data-slide-to="2" id="slide-2"></li>
-            </ol>
+             <ol class="carousel-indicators">
+             <?php 
+								$i=0;
+									foreach($tastingmonailData as $key=>$val){
+										$ActiveClass='';
+										if($i==0){
+											$ActiveClass='active';
+											}
+									?>
+           
+                <li style="background:url(<?=base_url()?>upload/<?=$val['image']?>);background-size:100%" data-target="#case-studies-carousel<?=$val['id']?>" data-slide-to="<?=$i?>" class="<?=$ActiveClass?>" id="slide-<?=$i?>"></li>
+           
+            <?php
+			$i++;
+			 } ?>
+              </ol>
             <!-- Wrapper for slides -->
+             
             <div class="carousel-inner" role="listbox">
-                <div class="item item1 active">
-                    <div class="carousel-caption">
+              <?php 
+			  $i=0;
+									foreach($tastingmonailData as $key=>$val){
+										$ActiveClass='';
+										if($i==0){
+											$ActiveClass='active';
+											}
+									?>
+                <div class="item item <?=$ActiveClass?>">
+                    <div class="carousel-caption ">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-4 col-xs-12 pull-left">
-                                    <h2 class="b-clor">Make Your Business
-                                        <br> Go Online Today!</h2>
-                                    <p class="regular-text">We helped Jessica making her first website. Now she sells beautiful flowers from her
-                                        small shop to wide range of customers in New York with little efforts!</p>
-                                    <a href="https://www.youtube.com/watch?v=uH0UQl5JC2c" class="small-text semi-bold video-popup">
-                                        <span class="icon-play-circle"></span>
-                                        <span>watch jessica's journey</span>
-                                    </a>
+                                <div class="col-md-12 col-xs-12 text-center">
+                                    <h2 class="b-clor"><?php echo $val['title'] ?></h2>
+                                  <center> <p class="regular-text" style="text-align:center"><?php echo $val['description'] ?></p>
+                                </center> 
                                 </div>
-                                <div class="col-md-5 col-xs-12 pull-right floating-img">
-                                    <img src="public/images/browser-screen.png" alt="browser-screen" class="img-responsive pull-right">
-                                </div>
+                                
                             </div>
                             <!-- End of .row -->
+                            
                         </div>
                         <!-- End of .container -->
                     </div>
                 </div>
-                <!-- End of .item -->
-                <div class="item item2">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4 col-xs-12 pull-left">
-                                    <h2 class="b-clor">Make Your Business
-                                        <br> Go Online Today!</h2>
-                                    <p class="regular-text">We helped David sell his incredible art collections through his personalized website.
-                                        He left his boring job and embraced his dream career with little help from us.</p>
-                                    <a href="https://www.youtube.com/watch?v=Fz-6MdlPY1M" class="small-text semi-bold video-popup">
-                                        <span class="icon-play-circle"></span>
-                                        <span>watch david's journey</span>
-                                    </a>
-                                </div>
-                                <div class="col-md-5 col-xs-12 pull-right floating-img">
-                                    <img src="public/images/browser-screen2.png" alt="browser-screen" class="img-responsive pull-right">
-                                </div>
-                            </div>
-                            <!-- End of .row -->
-                        </div>
-                        <!-- End of .container -->
-                    </div>
-                </div>
-                <!-- End of .item -->
-                <div class="item item3">
-                    <div class="carousel-caption">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4 col-xs-12 pull-left">
-                                    <h2 class="b-clor">Make Your Business
-                                        <br> Go Online Today!</h2>
-                                    <p class="regular-text">Olivia is a musician who earns her living by selling her amazing work to many music studio.
-                                        We gave her website a new look that matches the quality of her work and her personality.</p>
-                                    <a href="https://www.youtube.com/watch?v=rrT6v5sOwJg" class="small-text semi-bold video-popup">
-                                        <span class="icon-play-circle"></span>
-                                        <span>watch olivia's journey</span>
-                                    </a>
-                                </div>
-                                <div class="col-md-5 col-xs-12 pull-right floating-img">
-                                    <img src="public/images/browser-screen3.png" alt="browser-screen" class="img-responsive pull-right">
-                                </div>
-                            </div>
-                            <!-- End of .row -->
-                        </div>
-                        <!-- End of .container -->
-                    </div>
-                </div>
+                     <?php
+					 $i++;
+					  } ?>
                 <!-- End of .item -->
             </div>
             <!-- Controls -->
+           
         </div>
     </section>
     <!--end case studies section-->
@@ -391,65 +411,25 @@ echo get_words($des,10);
                 <!--text box-->
                 <div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
                     <h3 class="semi-bold">We Lead from the Front</h3>
-                    <p class="regular-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                        laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Consectetuer adipiscing elit,
-                        sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                    <ul>
-                        <li>
-                            <span class="icon-man"></span>Expert guidance to build your start-up.</li>
-                        <li>
-                            <span class="icon-bag-dollar"></span>Save time, resource and money!</li>
-                        <li>
-                            <span class="icon-golf2"></span>Create endless business possibilites!</li>
-                    </ul>
-                    <p class="regular-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                        laoreet dolore magna. Quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex
-                        ea commodo consequat. Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
-                        tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-                </div>
+                    <p class="regular-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                    , sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                     Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit
+                      lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor 
+                      in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat
+                       nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
+                       luptatum zzril delenit augue duis dolore te feugait nulla facilisi. </p>
+                    </div>
                 <!--end text box-->
                 <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"> </div>
                 <!--form for free quote-->
                 <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-                    <div class="customise-form">
-                        <form method="POST" id="contactForm"> 
-                            <div class="form-element-wrapper">
-                                <h3>Get a Free Quote</h3>
-                                <div class="form-group customised-formgroup">
-                                    <span class="icon-user"></span>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Enter Name">
-                                </div>
-                                <div class="form-group customised-formgroup">
-                                    <span class="icon-envelope"></span>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder=" Enter Email">
-                                </div>
-                                <div class="form-group customised-formgroup">
-                                    <span class="icon-telephone"></span>
-                                    <input type="text" name="phone"id=" phone" class="form-control" placeholder=" Enter Phone">
-                                </div>
-                                <div class="form-group customised-formgroup">
-                                    <span class="icon-laptop"></span>
-                                    <input type="text" name="website" id "website" class="form-control" placeholder=" Enter Website">
-                                </div>
-                                <div class="form-group customised-formgroup">
-                                    <span class="icon-bubble"></span>
-                                    <textarea name="messages" id="messages" class="form-control" placeholder=" Enter Message"></textarea>
-                                </div>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-fill full-width">GET A QUOTE<i class="fa fa-spinner fa-spin fa-fw btn-loader" style="display: none;margin: 3px 8px 0 0;float: right;"></i>
-                                    <span class="icon-chevron-right"></span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <?php include_once 'includes/qoutform.php'; ?>
                 </div>
                 <!--end form for free quote-->
             </div>
         </div>
     </section
-    <!--end Choosing Us section-->
+    ><!--end Choosing Us section-->
     <!--counter section-->
     <div class="clearfix"></div>
     <div class="banner  o-hidden success-number">
@@ -459,7 +439,7 @@ echo get_words($des,10);
             <section>
                 <div class="clearfix"></div>
                 <div class="stuff" data-type="content">
-                    <div class="container">
+                    <div class="container hidden">
                         <!--section title -->
                         <h2>Success In Numbers</h2>
                         <!--end section title -->
@@ -507,8 +487,8 @@ echo get_words($des,10);
     </div>
     <!--end counter section-->
     <!--testimonial Section-->
-    <section class="bg-white testimonial">
-        <div class="container">
+    <section class="bg-white testimonial hidden">
+        <div class="container hidden">
             <!--section title -->
             <h2 class="b-clor">Meet Our Happy Customers</h2>
             <hr class="dark-line" />
@@ -617,602 +597,11 @@ echo get_words($des,10);
     </section>
     <!-- End of .testimonial -->
     <!--Blog Section-->
-    <section class="news dmb-home">
-        <div class="container">
-            <!--section title -->
-            <h2 class="b-clor">Latest Blogs</h2>
-            <hr class="dark-line" />
-            <!--end section title -->
-            <div class="row">
-                <!--blog left content-->
-                <div class="col-sm-6 col-md-4">
-                    <div class="blog-content is-featured">
-                        <img src="public/images/news1.jpg" alt="blog" class="img-responsive blog-img" />
-                        <div class="box-green-border equalheight">
-                            <span>2 May, 2017</span>
-                            <a href="blog-details.html">Digital Marketo Moved to Their New Office</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="blog-content">
-                        <img src="public/images/news2.jpg" alt="blog" class="img-responsive blog-img" />
-                        <div class="box-green-border equalheight">
-                            <span>2 Jun, 2017</span>
-                            <a href="blog-details.html">Welcome to Our New Head of Production</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4">
-                    <div class="blog-content">
-                        <img src="public/images/news3.jpg" alt="blog" class="img-responsive blog-img" />
-                        <div class="box-green-border equalheight">
-                            <span>5 December, 2016</span>
-                            <a href="blog-details.html">Digital Marketo Launched Their Website Prototyping App</a>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt.
-                                </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 text-center">
-                    <a href="#" class="btn btn-fill full-width m60">READ MORE NEWS</a>
-                </div>
-            </div>
-            <!--read more blog button-->
-        </div>
-    </section>
     <!--end blog Section-->
     <!-- ++++ footer ++++ -->
     <?php include_once"includes/footer.php" ?>
     <!--end footer-->
-    <!--get a quote modal-->
-    <div class="modal fade verticl-center-modal" id="getAQuoteModal" tabindex="-1" role="dialog" aria-labelledby="getAQuoteModal">
-        <div class="modal-dialog getguoteModal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="icon-cross-circle"></span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="customise-form">
-                                <form class="email_form" method="post">
-                                    <h3>Get a Free Quote</h3>
-                                    <div class="form-group customised-formgroup">
-                                        <span class="icon-user"></span>
-                                        <input type="text" name="full_name" class="form-control" placeholder="Name">
-                                    </div>
-                                    <div class="form-group customised-formgroup">
-                                        <span class="icon-envelope"></span>
-                                        <input type="email" name="email" class="form-control" placeholder="Email">
-                                    </div>
-                                    <div class="form-group customised-formgroup">
-                                        <span class="icon-telephone"></span>
-                                        <input type="text" name="phone" class="form-control" placeholder="Phone">
-                                    </div>
-                                    <div class="form-group customised-formgroup">
-                                        <span class="icon-laptop"></span>
-                                        <input type="text" name="website" class="form-control" placeholder="Website">
-                                    </div>
-                                    <div class="form-group customised-formgroup">
-                                        <span class="icon-bubble"></span>
-                                        <textarea name="messages" id="messages" class="form-control" placeholder="Message"></textarea>
-                                    </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-fill full-width">GET A QUOTE
-                                            <span class="icon-chevron-right"></span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h3>What’s Next?</h3>
-                            <ul class="list-with-arrow">
-                                <li>An email and phone call from one of our representatives.</li>
-                                <li>A time &amp; cost estimation.</li>
-                                <li>An in-person meeting.</li>
-                            </ul>
-                            <div class="contact-info-box-wrapper">
-                                <div class="contact-info-box">
-                                    <span class="icon-telephone"></span>
-                                    <div>
-                                        <h6>Give us a call</h6>
-                                        <p>(123) 456 7890</p>
-                                    </div>
-                                </div>
-                                <div class="contact-info-box">
-                                    <span class="icon-envelope"></span>
-                                    <div>
-                                        <h6>Send an email</h6>
-                                        <p>yourcompany@sample.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end get a quote modal-->
-    <!--portfolio details  modal-->
-    <div class="modal fade verticl-center-modal" id="portfolioDetModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal1">
-        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cross-circle"></span>
-                </button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- main slider carousel -->
-                            <div id="slider">
-                                <div id="carousel-bounding-box">
-                                    <div id="myCarousel" class="carousel slide myCarousel">
-                                        <!-- main slider carousel items -->
-                                        <div class="carousel-inner">
-                                            <div class="active item" data-slide-number="0">
-                                                <img src="public/images/portfolio/portfolio-details-slider-one.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="1">
-                                                <img src="public/images/portfolio/portfolio-details-slider-two.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="2">
-                                                <img src="public/images/portfolio/portfolio-details-slider-three.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div id="slider-thumbs">
-                                                <!-- thumb navigation carousel items -->
-                                                <ul class="list-inline  thumb-list">
-                                                    <li>
-                                                        <a id="carousel-selector-0" class="carousel-selector selected">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-1.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-1" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-2.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-2" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-3.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="port-modal-content">
-                                <p class="gray-text">Featured - Design</p>
-                                <h2 class="b-clor">Restaurant Website Design</h2>
-                                <p class="regular-text">Lorem ipsum dolor sit amet, consect etuer adipi scing elit, sed diam nonum mLorem ipsum dolor
-                                    sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                <p class="regular-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                    vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
-                            </div>
-                            <h3>We delivered:</h3>
-                            <ul class="list-with-arrow">
-                                <li>
-                                    <i class="icon-chevron-right"></i> A strategy to grow business online.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A unique website with great user experience design.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A custom content management system to maintain
-                                    <br> the website flowlessly. </li>
-                            </ul>
-                            <a href="#" class="medium-btn2  btn btn-fill">Launch website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="modal fade verticl-center-modal" id="portfolioDetModal2" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal2">
-        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cross-circle"></span>
-                </button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- main slider carousel -->
-                            <div id="slider2">
-                                <div id="carousel-bounding-box2">
-                                    <div id="myCarousel2" class="carousel slide myCarousel">
-                                        <!-- main slider carousel items -->
-                                        <div class="carousel-inner">
-                                            <div class="active item" data-slide-number="0">
-                                                <img src="public/images/portfolio/portfolio-details-slider-one.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="1">
-                                                <img src="public/images/portfolio/portfolio-details-slider-two.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="2">
-                                                <img src="public/images/portfolio/portfolio-details-slider-three.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div id="slider-thumbs2">
-                                                <!-- thumb navigation carousel items -->
-                                                <ul class="list-inline  thumb-list">
-                                                    <li>
-                                                        <a id="carousel-selector-2-0" class="carousel-selector selected">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-1.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-2-1" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-2.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-2-2" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-3.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="port-modal-content">
-                                <p class="gray-text">Featured - Design</p>
-                                <h2 class="b-clor">Jet Airplane Design</h2>
-                                <p class="regular-text">Lorem ipsum dolor sit amet, consect etuer adipi scing elit, sed diam nonum mLorem ipsum dolor
-                                    sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                <p class="regular-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                    vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
-                            </div>
-                            <h3>We delivered:</h3>
-                            <ul class="list-with-arrow">
-                                <li>
-                                    <i class="icon-chevron-right"></i> A strategy to grow business online.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A unique website with great user experience design.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A custom content management system to maintain
-                                    <br> the website flowlessly. </li>
-                            </ul>
-                            <a href="#" class="medium-btn2  btn btn-fill">Launch website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade verticl-center-modal" id="portfolioDetModal3" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal3">
-        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cross-circle"></span>
-                </button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- main slider carousel -->
-                            <div id="slider3">
-                                <div id="carousel-bounding-box3">
-                                    <div id="myCarousel3" class="carousel slide myCarousel">
-                                        <!-- main slider carousel items -->
-                                        <div class="carousel-inner">
-                                            <div class="active item" data-slide-number="0">
-                                                <img src="public/images/portfolio/portfolio-details-slider-one.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="1">
-                                                <img src="public/images/portfolio/portfolio-details-slider-two.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="2">
-                                                <img src="public/images/portfolio/portfolio-details-slider-three.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div id="slider-thumbs3">
-                                                <!-- thumb navigation carousel items -->
-                                                <ul class="list-inline  thumb-list">
-                                                    <li>
-                                                        <a id="carousel-selector-3-0" class="carousel-selector selected">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-1.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-3-1" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-2.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-3-2" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-3.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="port-modal-content">
-                                <p class="gray-text">Featured - Design</p>
-                                <h2 class="b-clor">Spring Water Service Design</h2>
-                                <p class="regular-text">Lorem ipsum dolor sit amet, consect etuer adipi scing elit, sed diam nonum mLorem ipsum dolor
-                                    sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                <p class="regular-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                    vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
-                            </div>
-                            <h3>We delivered:</h3>
-                            <ul class="list-with-arrow">
-                                <li>
-                                    <i class="icon-chevron-right"></i> A strategy to grow business online.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A unique website with great user experience design.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A custom content management system to maintain
-                                    <br> the website flowlessly. </li>
-                            </ul>
-                            <a href="#" class="medium-btn2  btn btn-fill">Launch website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade verticl-center-modal" id="portfolioDetModal4" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal4">
-        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cross-circle"></span>
-                </button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- main slider carousel -->
-                            <div id="slider4">
-                                <div id="carousel-bounding-box4">
-                                    <div id="myCarousel4" class="carousel slide myCarousel">
-                                        <!-- main slider carousel items -->
-                                        <div class="carousel-inner">
-                                            <div class="active item" data-slide-number="0">
-                                                <img src="public/images/portfolio/portfolio-details-slider-one.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="1">
-                                                <img src="public/images/portfolio/portfolio-details-slider-two.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="2">
-                                                <img src="public/images/portfolio/portfolio-details-slider-three.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div id="slider-thumbs4">
-                                                <!-- thumb navigation carousel items -->
-                                                <ul class="list-inline  thumb-list">
-                                                    <li>
-                                                        <a id="carousel-selector-4-0" class="carousel-selector selected">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-1.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-4-1" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-2.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-4-2" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-3.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="port-modal-content">
-                                <p class="gray-text">Featured - Design</p>
-                                <h2 class="b-clor">Second Language Website</h2>
-                                <p class="regular-text">Lorem ipsum dolor sit amet, consect etuer adipi scing elit, sed diam nonum mLorem ipsum dolor
-                                    sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                <p class="regular-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                    vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
-                            </div>
-                            <h3>We delivered:</h3>
-                            <ul class="list-with-arrow">
-                                <li>
-                                    <i class="icon-chevron-right"></i> A strategy to grow business online.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A unique website with great user experience design.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A custom content management system to maintain
-                                    <br> the website flowlessly. </li>
-                            </ul>
-                            <a href="#" class="medium-btn2  btn btn-fill">Launch website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade verticl-center-modal" id="portfolioDetModal5" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal5">
-        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cross-circle"></span>
-                </button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- main slider carousel -->
-                            <div id="slider5">
-                                <div id="carousel-bounding-box5">
-                                    <div id="myCarousel5" class="carousel slide myCarousel">
-                                        <!-- main slider carousel items -->
-                                        <div class="carousel-inner">
-                                            <div class="active item" data-slide-number="0">
-                                                <img src="public/images/portfolio/portfolio-details-slider-one.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="1">
-                                                <img src="public/images/portfolio/portfolio-details-slider-two.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="2">
-                                                <img src="public/images/portfolio/portfolio-details-slider-three.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div id="slider-thumbs5">
-                                                <!-- thumb navigation carousel items -->
-                                                <ul class="list-inline  thumb-list">
-                                                    <li>
-                                                        <a id="carousel-selector-5-0" class="carousel-selector selected">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-1.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-5-1" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-2.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-5-2" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-3.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="port-modal-content">
-                                <p class="gray-text">Featured - Design</p>
-                                <h2 class="b-clor">Home Buy And Sell </h2>
-                                <p class="regular-text">Lorem ipsum dolor sit amet, consect etuer adipi scing elit, sed diam nonum mLorem ipsum dolor
-                                    sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                <p class="regular-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                    vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
-                            </div>
-                            <h3>We delivered:</h3>
-                            <ul class="list-with-arrow">
-                                <li>
-                                    <i class="icon-chevron-right"></i> A strategy to grow business online.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A unique website with great user experience design.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A custom content management system to maintain
-                                    <br> the website flowlessly. </li>
-                            </ul>
-                            <a href="#" class="medium-btn2  btn btn-fill">Launch website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade verticl-center-modal" id="portfolioDetModal6" tabindex="-1" role="dialog" aria-labelledby="portfolioDetModal6">
-        <div class="modal-dialog getguoteModal-dialog potfolio-modal" role="document">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span class="icon-cross-circle"></span>
-                </button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <!-- main slider carousel -->
-                            <div id="slider6">
-                                <div id="carousel-bounding-box6">
-                                    <div id="myCarousel7" class="carousel slide myCarousel">
-                                        <!-- main slider carousel items -->
-                                        <div class="carousel-inner">
-                                            <div class="active item" data-slide-number="0">
-                                                <img src="public/images/portfolio/portfolio-details-slider-one.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="1">
-                                                <img src="public/images/portfolio/portfolio-details-slider-two.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div class="item" data-slide-number="2">
-                                                <img src="public/images/portfolio/portfolio-details-slider-three.jpg" alt="images" class="img-responsive">
-                                            </div>
-                                            <div id="slider-thumbs6">
-                                                <!-- thumb navigation carousel items -->
-                                                <ul class="list-inline  thumb-list">
-                                                    <li>
-                                                        <a id="carousel-selector-6-0" class="carousel-selector selected">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-1.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-6-1" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-2.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                    <li>
-                                                        <a id="carousel-selector-6-2" class="carousel-selector">
-                                                            <img src="public/images/portfolio/portfolio-slider-thum-3.jpg" class="img-responsive"
-                                                                alt=""> </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="port-modal-content">
-                                <p class="gray-text">Featured - Design</p>
-                                <h2 class="b-clor">Technical University Website</h2>
-                                <p class="regular-text">Lorem ipsum dolor sit amet, consect etuer adipi scing elit, sed diam nonum mLorem ipsum dolor
-                                    sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                                    dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
-                                    tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-                                <p class="regular-text">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
-                                    vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
-                            </div>
-                            <h3>We delivered:</h3>
-                            <ul class="list-with-arrow">
-                                <li>
-                                    <i class="icon-chevron-right"></i> A strategy to grow business online.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A unique website with great user experience design.</li>
-                                <li>
-                                    <i class="icon-chevron-right"></i> A custom content management system to maintain
-                                    <br> the website flowlessly. </li>
-                            </ul>
-                            <a href="#" class="medium-btn2  btn btn-fill">Launch website</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--end portfolio details modal-->
-
-    <!-- ++++ Javascript libraries ++++ -->
-    <!--js library of jQuery-->
-    <script type="text/javascript" src="public/js/jquery.min.js"></script>
-    <!--js library of bootstrap-->
-    <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
     <!--js library for number counter-->
     <script src="public/js/waypoints.min.js"></script>
     <script type="text/javascript" src="public/js/jquery.counterup.min.js"></script>
@@ -1243,68 +632,13 @@ echo get_words($des,10);
 
 </html>
 <script type="text/javascript">
-       $('#contactForm').on("submit",function(e) {
-     
-          e.preventDefault(); // prevent submit form
-
-var formData= new FormData();
-var name= $('#name').val();
-formData.append('name',name);
-var email= $('#email').val();
-formData.append('email',email);
-
-var phone= $('#phone').val();
-formData.append('phone',phone);
-
-var website= $('#website').val();
-formData.append('website',website);
-var messages= $('#messages').val();
-formData.append('messages',messages);
-
-$.ajax({
-
-      type: "POST",
-      url: "contactajax.php",
-      data: formData,
-      cache: false,
-      contentType: false,
-      processData: false,
-      dataType: 'JSON',
-      beforeSend: function() {
-      $('.btn-loader').show();
-    
-      },
-
-      success: function(response) {
-         $('.btn-loader').hide();
-      if(response.status==200){
-        $('.alert').show();
-        $('.alert').html(response.message);
-        $('.alert').addClass('alert-success');
-        $('.alert').removeClass('alert-danger');
-        $('#contactForm')[0].reset();
-      }else if(response.status==204){
-        $('.alert').show();
-        $('.alert').html(response.message);
-        $('.alert').addClass('alert-danger');
-      }else{
-        $('.alert').show();
-        $('.alert').html(response.message);
-        $('.alert').addClass('alert-warning');
-      }
-           /******setTimeout start******/
-               setTimeout(
-                  function(){
-                  $('.alert').hide();
-                  },3000
-                ); 
-        /******setTimeout end******/
-      }
-
-});
-
-
-
-        });
        
+	   
+	   $(document).ready(function(e) {
+        //$('#getAQuoteModal').modal('show');
+    	});
+	
+	
+	
+	   
     </script>

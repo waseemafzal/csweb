@@ -17,6 +17,18 @@ function getData(){
 			}
 	
 	}
+function recentBlogs(){
+	$data = $this->db->select('title,date')->limit(5)->order_by('id', 'DESC')->get($this->table);
+	
+	if($data->num_rows()>0){
+		
+		return $data->result_array();
+		}else{
+			return array();
+			}
+	
+	}
+
 
 public function do_upload($max_width=1024,$max_height=768)
         {
@@ -58,6 +70,18 @@ function editData($id){
 			}
 	
 	}
+
+function getDataById($id){
+	$data = $this->db->where('id',$id)->get($this->table);
+	
+	if($data->num_rows()>0){
+		return $data->row();
+		}else{
+			return array();
+			}
+	
+	}
+
 
 function insertData($array){
 	$data = $this->db->insert($this->table,$array);

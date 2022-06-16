@@ -48,9 +48,26 @@ class Portfolio extends CI_Controller {
                 }
                 else
                 {
+				 				  //  //mata_description
+				     $data=array('title'=>$title,'category'=>$category,'description'=>$description,'website'=>$website);  
+				  
+				  if(isset($_FILES['image']['name'])){
+					 // print_r($_FILES);exit;
+					$data['image']=  $this->model->do_upload();
+					  
+					  }else{
+						  if($id==''){
+							  $response['status']=204;
+                       		$response['message']='image field is required';
+							echo json_encode($response);exit;
+							  }
+
+						  }
+
+
                    
 				  // print_r($_POST);exit;
-				   $data=array('title'=>$title,'category'=>$category,'description'=>$description,'website'=>$website); 
+				
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){
@@ -79,6 +96,8 @@ class Portfolio extends CI_Controller {
 		
 		
 		}
+		
+		
 	function edit(){
 			extract($_POST); 
 			$result=  $this->model->editData($id);

@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,12 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <style type="text/css">
+
+.customWidth{
+    width: 90%;
+    max-width: initial;
+}
+
     .title{
         display: inline-block;
     }
@@ -58,13 +65,13 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#portfolioModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                   Add Portfolio 
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Portfolio</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Contact Us</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -72,10 +79,11 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Title</th>
+                                         <th>Title</th>
                                             <th>Category</th>
                                             <th>Description</th>
                                             <th>Website</th>
+                                            <th>Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -92,6 +100,7 @@
 echo get_words($des,10);
 ?></td>
                                             <td><?php echo $val['website']  ?></td>
+                                            <td><img width="50" src="upload/<?php echo $val['image']  ?>" ></td>
                                             <td><a class="btn btn-info btn-xs" onClick="editRecord('<?php echo  $val['id'] ?>')">
                                             <i class="fa fa-pen"></i></a>
                                              <a onClick="deleteRecord('<?php echo  $val['id'] ?>')"  class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a></td>
@@ -133,45 +142,57 @@ echo get_words($des,10);
     <!-- Logout Modal-->
     <div class="modal fade" id="portfolioModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog customWidth" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Portfolio</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Portfolio</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="form_add_update">
+                        <form id="form_add_update">
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="form-group">
+                       <div class="row">
+                                         <div class="col-md-6 col-xs-12">
                                             <label>Title</label>
                                             <input type="text" id="text_title" name="title"  class="form-control" >
                                             
                                         </div>
+                                       
+                                         <div class="col-md-6 col-xs-12">
                                        <label>Select Category:</label>
                     <select class="form-control" name="category" id="text_category">
-                   
-                       <option value="Website Design">Website Design</option>
-            <option value=" Mobile Apps Design"> Mobile Apps Design</option>
-            <option value="Website Development">Website Development </option>
-              <option value="Mobile Apps  Development ">Mobile Apps  Development </option>
-            <option value="ONLINE MARKETING">ONLINE MARKETING</option>
-            <option value="BUSINESS">BUSINESS</option>
-             <option value="TECHNOLOGY">TECHNOLOGY</option>
+                   <?php 
+				   
+				   $catArray=array('All Work','Website','Logo','Mobile App','Social Media');
+				   
+				   foreach($catArray as $key=>$val){
+				   ?>
+                       <option value="<?=$val?>"><?=$val?></option>
+                       <?php } ?>
+
                     </select>
-                                       
-                                        <div class="form-group">
+                                  </div> 
+                                   </div>    
+                                         <div class="col-md-12 col-xs-12">
                                             <label>description</label>
                                             <textarea id="description" name="description"  class="form-control"rows="5" ></textarea>
                                             
                                         </div>
-                                         <div class="form-group">
+                                          <div class="row">
+                                        <div class="col-md-6 col-xs-12">
                                             <label>Website</label>
                                             <input type="text" id="text_website" name="website"  class="form-control" >
                                              
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <label>Image</label>
+                                            <input type="file" id="image" name="image"  class="form-control" >
+                                            <div id="imgdiv" class="col-xs-12"></div>
+                                        </div>
+                                        
                                         </div>
                                        
                                      
@@ -274,9 +295,9 @@ var other_data = $('#form_add_update').serializeArray();
     $.each(other_data,function(key,input){
         formdata.append(input.name,input.value);
     });   
-	/* if($('#image').val()!=''){
-		formData.append("image", document.getElementById('image').files[0]);
-		}*/
+	 if($('#image').val()!=''){
+		formdata.append("image", document.getElementById('image').files[0]);
+		}
 formdata.append("description", CKEDITOR.instances.description.getData());
 
 
@@ -359,6 +380,10 @@ $('#id').val(id);
 $('#action').val('update');
 
 $('#portfolioModal').modal('show');
+var src ='upload/'+response.data.image;
+var img= '<div class="thumbnail"><img src="'+src+'" width="50"></div>';
+
+$('#imgdiv').html(img);
 
   }
   // ajax end

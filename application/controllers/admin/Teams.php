@@ -51,10 +51,10 @@ class Teams extends CI_Controller {
                    
 				  //  //mata_description
 				  
-				  $image='noimg.png';
+				  $data=array('name'=>$name,'description'=>$description,'designation'=>$designation,'facebook'=>$facebook,'youtube'=>$youtube,'twitter'=>$twitter,'linkedin'=>$linkedin);
 				  if(isset($_FILES['image']['name'])){
 					 // print_r($_FILES);exit;
-					$image=  $this->model->do_upload();
+					$data['image']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -64,7 +64,7 @@ class Teams extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('name'=>$name,'description'=>$description,'designation'=>$designation,'image'=>$image,'facebook'=>$facebook,'youtube'=>$youtube,'twitter'=>$twitter,'linkedin'=>$linkedin); 
+				    
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

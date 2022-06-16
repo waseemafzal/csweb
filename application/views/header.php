@@ -36,6 +36,15 @@
     <!-- [if IE]>
         <script src="js/html5shiv.js"></script>
     <![endif]  -->
+    <style>
+	.portfolio
+	.img_container img {
+    width: 100%;
+    height: 200px;
+	}
+	
+	
+	</style>
 </head>
 
 <body>

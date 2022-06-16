@@ -23,13 +23,17 @@
             <hr class="dark-line" />
             <!--end section title -->
             <div class="row">
+             <?php 
+									foreach($TeamData as $key=>$val){
+									?>
+                                <li>
                 <div class="col-md-4 col-xs-6">
                     <div class="content">
                         <div class="img_container">
-                            <img src="public/images/team/1.jpg" alt="team members" class="img-responsive">
+                            <img src="upload/<?php echo $val['image'] ?>" alt="team members" class="img-responsive">
                             <div class="por-overlay">
                                 <div class="text-inner">
-                                    <a class="btn btn-nofill tmDetModal1">View Details</a>
+                                    <a href="career" class="btn btn-nofill tmDetModal1">View Details</a>
                                 </div>
                                 <!-- End of .text-inner -->
                             </div>
@@ -38,127 +42,18 @@
                         <!-- End of .img_container -->
                         <div class="member_details">
                             <h3>
-                                <a class="member_intro tmDetModal">Steve Johnson</a>Chief Executive Officer</h3>
+                                <a class="member_intro tmDetModal"><?php echo $val['name'] ?></a><?php echo $val['designation'] ?></h3>
                         </div>
                         <!-- End of .member_details -->
                     </div>
                     <!-- End of .content -->
                 </div>
-                <!-- End of .col-sm-4 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="content">
-                        <div class="img_container">
-                            <img src="public/images/team/2.jpg" alt="team members" class="img-responsive">
-                            <div class="por-overlay">
-                                <div class="text-inner">
-                                    <a class="btn btn-nofill tmDetModal2">View Details</a>
-                                </div>
-                                <!-- End of .text-inner -->
-                            </div>
-                            <!-- End of .por-overlay -->
-                        </div>
-                        <!-- End of .img_container -->
-                        <div class="member_details">
-                            <h3>
-                                <a class="member_intro tmDetModal">Olivia jackson</a>Chief Operating Officer</h3>
-                        </div>
-                        <!-- End of .member_details -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="content">
-                        <div class="img_container">
-                            <img src="public/images/team/3.jpg" alt="team members" class="img-responsive">
-                            <div class="por-overlay">
-                                <div class="text-inner">
-                                    <a class="btn btn-nofill tmDetModal3">View Details</a>
-                                </div>
-                                <!-- End of .text-inner -->
-                            </div>
-                            <!-- End of .por-overlay -->
-                        </div>
-                        <!-- End of .img_container -->
-                        <div class="member_details">
-                            <h3>
-                                <a class="member_intro tmDetModal">John Kenny</a>Head of Marketing</h3>
-                        </div>
-                        <!-- End of .member_details -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="content">
-                        <div class="img_container">
-                            <img src="public/images/team/4.jpg" alt="team members" class="img-responsive">
-                            <div class="por-overlay">
-                                <div class="text-inner">
-                                    <a class="btn btn-nofill tmDetModal4">View Details</a>
-                                </div>
-                                <!-- End of .text-inner -->
-                            </div>
-                            <!-- End of .por-overlay -->
-                        </div>
-                        <!-- End of .img_container -->
-                        <div class="member_details">
-                            <h3>
-                                <a class="member_intro tmDetModal">Silvia perry</a>Senior Design Srategist</h3>
-                        </div>
-                        <!-- End of .member_details -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="content">
-                        <div class="img_container">
-                            <img src="public/images/team/5.jpg" alt="team members" class="img-responsive">
-                            <div class="por-overlay">
-                                <div class="text-inner">
-                                    <a class="btn btn-nofill tmDetModal5">View Details</a>
-                                </div>
-                                <!-- End of .text-inner -->
-                            </div>
-                            <!-- End of .por-overlay -->
-                        </div>
-                        <!-- End of .img_container -->
-                        <div class="member_details">
-                            <h3>
-                                <a class="member_intro tmDetModal">david schwimmer</a>Senior Software Engineer</h3>
-                        </div>
-                        <!-- End of .member_details -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
-                <div class="col-md-4 col-xs-6">
-                    <div class="content">
-                        <div class="img_container">
-                            <img src="public/images/team/6.jpg" alt="team members" class="img-responsive">
-                            <div class="por-overlay">
-                                <div class="text-inner">
-                                    <a class="btn btn-nofill tmDetModal6">View Details</a>
-                                </div>
-                                <!-- End of .text-inner -->
-                            </div>
-                            <!-- End of .por-overlay -->
-                        </div>
-                        <!-- End of .img_container -->
-                        <div class="member_details">
-                            <h3>
-                                <a class="member_intro tmDetModal">Lowra</a>Office Pet</h3>
-                        </div>
-                        <!-- End of .member_details -->
-                    </div>
-                    <!-- End of .content -->
-                </div>
-                <!-- End of .col-sm-4 -->
+                <?php } ?>
+                
             </div>
             <!-- End of .row -->
             <div class="col-sm-12 text-center join-our-team-btn clearfix">
-                <a href="career.html" class="btn btn-fill full-width">Join Our Team</a>
+                <a href="career" class="btn btn-fill full-width">Join Our Team</a>
             </div>
         </div>
         <!-- End of .container -->

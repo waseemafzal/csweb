@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,12 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <style type="text/css">
+
+.customWidth{
+    width: 90%;
+    max-width: initial;
+}
+
     .title{
         display: inline-block;
     }
@@ -58,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#blogcommentsModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add BlogComments
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -72,7 +79,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                          <th>Name</th>
                                             <th>Email</th>
                                             <th>Website</th>
                                             <th>description</th>
@@ -136,42 +143,43 @@ echo get_words($des,10);
     <!-- Logout Modal-->
     <div class="modal fade" id="blogcommentsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog customWidth" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Blog Comments</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Blog Comments</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="form_add_update">
+                      <form id="form_add_update">
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="form-group">
+                                         <div class="row">
+                                        <div class="col-md-4 col-xs-12">
                                             <label>Name</label>
                                             <input type="text" id="text_name" name="name"  class="form-control" >
                                             
                                         </div>
-                                <div class="form-group">
+                                <div class="col-md-4 col-xs-12">
                                             <label>Email</label>
                                             <input type="text" id="text_email" name="email"  class="form-control" >
                                             
                                         </div>
                                        
                                         
-                                         <div class="form-group">
+                                         <div class="col-md-4 col-xs-12">
                                             <label>Website</label>
                                             <input type="text" id="text_website" name="website"  class="form-control" >
                                              
                                         </div>
-                                        <div class="form-group">
+                                        </div>
+                                       <div class="col-md-12 col-xs-12">
                                             <label>description</label>
                                             <textarea id="description" name="description"  class="form-control"rows="5" ></textarea>
                                             
                                         </div>
-                                        <div class="form-group">
+                                        <div class="col-md-12 col-xs-12">
                                             <label>Status</label>
                                             <input type="text" id="text_status" name="status"  class="form-control" >
                                             

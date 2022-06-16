@@ -24,41 +24,43 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                     <div class="customise-form contact-form">
-                        <form class="email_form" method="post">
+                        <form method="POST" id="contactusForm"> 
                             <div class="row">
                                 <div class="col-xs-6">
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-user"></span>
-                                        <input type="text" name="full_name" class="form-control" placeholder="Name">
+                                        <input type="text" name="name" id="text_name" class="form-control" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-envelope"></span>
-                                        <input type="email" name="email" class="form-control" placeholder="Email">
+                                        <input type="email" name="email" id="text_email" class="form-control" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-telephone"></span>
-                                        <input type="text" name="phone" class="form-control" placeholder="Phone">
+                                        <input type="text" name="phone" id="text_phone" class="form-control" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="col-xs-6">
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-laptop"></span>
-                                        <input type="text" name="website" class="form-control" placeholder="Website">
+                                        <input type="text" name="website" id="text_website" class="form-control" placeholder="Website">
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-bubble"></span>
-                                        <textarea name="message" class="form-control" placeholder="Message"></textarea>
+                                        <textarea name="messages" id="text_messages" class="form-control" placeholder="Message"></textarea>
                                     </div>
                                 </div>
                             </div>
-                            <div class="btn-wrapper">
-                                <button type="submit" class="btn btn-fill">Contact us now!</button>
+                            <div>
+                                <button type="submit" class="btn btn-fill full-width">GET A QUOTE<i class="fa fa-spinner fa-spin fa-fw btn-loader" style="display: none;margin: 3px 8px 0 0;float: right;"></i>
+                                    <span class="icon-chevron-right"></span>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -89,32 +91,24 @@
                         <div class="contact-info-box">
                             <ul class="social-links">
                                 <li>
-                                    <a href="#">
-                                        <span class="icon-facebook"></span>
-                                    </a>
-                                </li>
+                                    <li>
+                                        <a href="<?=$setting['facebook']?>">
+                                            <span class="icon-facebook"></span>
+                                        </a>
+                                    </li>
                                 <li>
-                                    <a href="#">
+                                    <a href="<?=$setting['twitter']?>">
                                         <span class="icon-twitter"></span>
                                     </a>
                                 </li>
+                               
                                 <li>
-                                    <a href="#">
-                                        <span class="icon-google-plus"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    <a href="<?=$setting['whatsapp']?>">
                                         <span class="icon-instagram"></span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <span class="icon-pinterest"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    <a href="<?=$setting['linkedin']?>">
                                         <span class="icon-linkedin"></span>
                                     </a>
                                 </li>
@@ -212,7 +206,7 @@
                                     </div>
                                     <div class="form-group customised-formgroup">
                                         <span class="icon-bubble"></span>
-                                        <textarea name="message" class="form-control" placeholder="Message"></textarea>
+                                        <textarea name="messages" class="form-control" placeholder="Message"></textarea>
                                     </div>
                                     <div>
                                         <button type="submit" class="btn btn-fill full-width">GET A QUOTE
@@ -281,3 +275,78 @@
 
 <!-- Mirrored from themes.axilweb.com/html/marketo/modern-big-digital-agency/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 27 Dec 2017 15:04:31 GMT -->
 </html>
+<script type="text/javascript">
+       $('#contactusForm').on("submit",function(e) {
+     //alert(200);
+          e.preventDefault(); // prevent submit form
+
+var formData= new FormData();
+var name= $('#text_name').val();
+formData.append('name',name);
+var email= $('#text_email').val();
+formData.append('email',email);
+
+var phone= $('#text_phone').val();
+formData.append('phone',phone);
+
+var website= $('#text_website').val();
+formData.append('website',website);
+//alert(website);
+var messages= $('#text_messages').val();
+formData.append('messages',messages);
+
+$.ajax({
+
+      type: "POST",
+      url: "contact/save",
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      dataType: 'JSON',
+      beforeSend: function() {
+      $('#loader').show();
+    
+      },
+
+      success: function(response) {
+         $('#loader').hide();
+      if(response.status==200){
+        $('.alert').show();
+        $('.alert').html(response.message);
+        $('.alert').addClass('alert-success');
+        $('.alert').removeClass('alert-danger');
+        $('#contactusForm')[0].reset();
+      }else if(response.status==204){
+        $('.alert').show();
+        $('.alert').html(response.message);
+        $('.alert').addClass('alert-danger');
+      }else{
+        $('.alert').show();
+        $('.alert').html(response.message);
+        $('.alert').addClass('alert-warning');
+      }
+           /******setTimeout start******/
+               setTimeout(
+                  function(){
+                  $('.alert').hide();
+                  },3000
+                ); 
+        /******setTimeout end******/
+      }
+
+});
+
+
+
+        });
+       
+	   
+	   $(document).ready(function(e) {
+        //$('#getAQuoteModal').modal('show');
+    	});
+	
+	
+	
+	   
+    </script>

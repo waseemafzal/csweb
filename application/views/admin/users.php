@@ -44,24 +44,23 @@
                     </div>
                     <div class="card-body">
                       <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Name</label>
+                        <label class="col-sm-3 col-form-label">FName</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control"  name="name">
+                          <input type="text" class="form-control"  name="fname">
                           <div class="invalid-feedback">
                             What's your no.?
                           </div>
                         </div>
                       </div>
                        <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">Phone</label>
+                        <label class="col-sm-3 col-form-label">LName</label>
                         <div class="col-sm-9">
-                        <input type="text" class="form-control" name="phone" required>
+                        <input type="text" class="form-control" name="lname" required>
                           <div class="valid-feedback">
                             Good job!
                           </div>
                         </div>
-                      </div>
-                      
+                      </div>  
                     <div class="form-group mb-0 row">
                         <label class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
@@ -81,14 +80,14 @@
                         </div>
                       </div><br>
 <div class="form-group mb-0 row">
-                        <label class="col-sm-3 col-form-label">Created Date</label>
+                        <label class="col-sm-3 col-form-label">Confirm_password</label>
                         <div class="col-sm-9">
-                          <input type="datetime-local" class="form-control" name="created_date" required>
+                          <input type="datetime-local" class="form-control" name="confirm_password" required>
                           <div class="invalid-feedback">
                             What do you wanna say?
                           </div>
                         </div>
-<input type="submit" name="submit">
+ <input type="submit" value="Register Account" name="btnSubmit" class="btn btn-primary btn-user btn-block">
 </div>
            </div>
 </div>

@@ -2,14 +2,15 @@
 <html lang="en">
 
 <head>
-<?php include_once "header.php";?>
+
+    <base href="<?=base_url()?>">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Register</title>
+    <title> Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,41 +37,37 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user">
+                            <form id="form_add_update" name="form_add_update" class="user">
+                            <div style="display:none" id="customAlert"></div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" name="fname" class="form-control form-control-user" id="exampleFirstName"
                                             placeholder="First Name">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" name="lname" class="form-control form-control-user" id="exampleLastName"
                                             placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" name="email" class="form-control form-control-user" id="email"
                                         placeholder="Email Address">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                            id="exampleInputPassword" placeholder="Password">
+                                        <input type="password" name="password" class="form-control form-control-user"
+                                            id="password" placeholder="Password">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" name="confirm_password" class="form-control form-control-user"
                                             id="exampleRepeatPassword" placeholder="Repeat Password">
                                     </div>
                                 </div>
-                                <a href="login.php" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
+                                <input type="submit" value="Register Account" name="btnSubmit" class="btn btn-primary btn-user btn-block">
+                                    
+                               
                                 <hr>
-                                <a href="index.php" class="btn btn-google btn-user btn-block">
-                                    <i class="fab fa-google fa-fw"></i> Register with Google
-                                </a>
-                                <a href="index.php" class="btn btn-facebook btn-user btn-block">
-                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
-                                </a>
+                               
                             </form>
                             <hr>
                             <div class="text-center">
@@ -100,3 +97,65 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    $('#form_add_update').on("submit",function(e) {
+e.preventDefault();
+var formdata= new FormData();
+var other_data = $('#form_add_update').serializeArray();
+    $.each(other_data,function(key,input){
+        formdata.append(input.name,input.value);
+  });
+
+$.ajax({
+  type: "POST",
+  url: "admin/user/saveuser",
+  processData: false,
+    contentType: false,
+    cache: false,
+    data: formdata,
+    enctype: 'multipart/form-data',
+   datatype: "json",
+   beforeSend: function() {
+        $("#loader").show();  
+    },
+  success: function(response){
+
+     $("#loader").hide();  
+   response = jQuery.parseJSON(response);
+    console.log(response);
+  //alert(response.status);
+     if(response.status==200){
+         $("#customAlert").addClass("alert-success");
+     }
+     else if(response.status==204){
+        $("#customAlert").addClass("alert-danger");
+     }
+
+        $("#customAlert").show(); // will show the div display:block
+        $("#customAlert").html(response.message); 
+      
+       setTimeout(function(){
+    $("#customAlert").hide();
+	 if(response.status==200){
+	location.reload();
+	 }
+        },2000);
+
+  }
+  // ajax end
+});
+
+
+    });
+
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+	setTimeout(function(){
+	$('#email').val('');
+	$('#password').val('');
+	},1000);
+	
+});
+
+</script>

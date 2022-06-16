@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -43,7 +44,8 @@
                                     </div>
 
 
-                                    <form class="user" method="post">
+                                    <form id="form_add_update" name="form_add_update" class="user">
+                            <div style="display:none" id="customAlert"></div>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
@@ -86,3 +88,67 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    $('#form_add_update').on("submit",function(e) {
+	//	alert(200);
+e.preventDefault(); // prevent form submit
+var formdata= new FormData();
+var other_data = $('#form_add_update').serializeArray();
+    $.each(other_data,function(key,input){
+        formdata.append(input.name,input.value);
+		
+  });
+
+$.ajax({
+  type: "POST",
+  url: "admin/user/loginuser",
+  processData: false,
+    contentType: false,
+    cache: false,
+    data: formdata,
+    enctype: 'multipart/form-data',
+   datatype: "json",
+   beforeSend: function() {
+        $("#loader").show();  
+    },
+  success: function(response){
+
+     $("#loader").hide();  
+   response = jQuery.parseJSON(response);
+    console.log(response);
+  //alert(response.status);
+     if(response.status==200){
+         $("#customAlert").addClass("alert-success");
+     }
+     else if(response.status==204){
+        $("#customAlert").addClass("alert-danger");
+     }
+
+        $("#customAlert").show(); // will show the div display:block
+        $("#customAlert").html(response.message); 
+      
+       setTimeout(function(){
+    $("#customAlert").hide();
+	 if(response.status==200){
+	window.location.href='admin/dashboard';
+	 }
+        },2000);
+
+  }
+  // ajax end
+});
+
+
+    });
+
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+	setTimeout(function(){
+	$('#email').val('');
+	$('#password').val('');
+	},1000);
+	
+});
+
+</script>

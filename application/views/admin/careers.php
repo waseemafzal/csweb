@@ -25,6 +25,12 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <style type="text/css">
+
+.customWidth{
+    width: 90%;
+    max-width: initial;
+}
+
     .title{
         display: inline-block;
     }
@@ -59,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#careersModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add Careers
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -73,7 +79,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Title</th>
+                                          <th>Title</th>
                                             <th>Department</th>
                                             <th>Positions</th>
                                             <th>Description</th>
@@ -135,7 +141,7 @@ echo get_words($des,10);
     <!-- Logout Modal-->
     <div class="modal fade" id="careersModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog customWidth" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add Careers</h5>
@@ -143,29 +149,30 @@ echo get_words($des,10);
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="form_add_update">
+                     <form id="form_add_update">
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="form-group">
+                       <div class="row">
+                                       <div class="col-md-4 col-xs-12">
                                             <label>Title</label>
                                             <input type="text" id="text_title" name="title"  class="form-control" >
                                             
                                         </div>
-                               <div class="form-group">
+                              <div class="col-md-4 col-xs-12">
                                             <label>Department</label>
                                             <input type="text" id="text_department" name="department"  class="form-control" >
                                             
                                         </div>
-                                        </div>
-                               <div class="form-group">
-                                            <label>Department</label>
+                                       
+                               <div class="col-md-4 col-xs-12">
+                                            <label>Positions</label>
                                             <input type="text" id="text_positions" name="positions"  class="form-control" >
                                             
                                         </div>
+                                         </div>
                                        
-                                        <div class="form-group">
+                                        <div class="col-md-12 col-xs-12">
                                             <label>description</label>
                                             <textarea id="description" name="description"  class="form-control"rows="5" ></textarea>
                                                

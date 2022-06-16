@@ -50,12 +50,11 @@ class Blogs extends CI_Controller {
                 else
                 {
                    
-				  //  //mata_description
+				   $data=array('title'=>$title,'category'=>$category,'description'=>$description,'date'=>$date,'tags'=>$tags,'meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_keywords'=>$meta_keywords);
 				  
-				  $image='noimg.png';
 				  if(isset($_FILES['image']['name'])){
 					 // print_r($_FILES);exit;
-					$image=  $this->model->do_upload();
+					$data['image']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -65,7 +64,7 @@ class Blogs extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('title'=>$title,'category'=>$category,'description'=>$description,'date'=>$date,'image'=>$image,'tags'=>$tags,'meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_keywords'=>$meta_keywords); 
+				   
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

@@ -47,12 +47,12 @@ class Cmservices extends CI_Controller {
                 else
                 {
                    
-				  //  //mata_description
+				 //  //mata_description
+				   $data=array('title'=>$title,'content'=>$content,'icon_class'=>$icon_class,'meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_keywords'=>$meta_keywords);
 				  
-				   $banner='noimg.png';
 				  if(isset($_FILES['banner']['name'])){
 					 // print_r($_FILES);exit;
-					$banner=  $this->model->do_upload();
+					$data['banner']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -62,7 +62,7 @@ class Cmservices extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('title'=>$title,'content'=>$content,'banner'=>$banner,'icon_class'=>$icon_class,'meta_title'=>$meta_title,'meta_description'=>$meta_description,'meta_keywords'=>$meta_keywords); 
+				   
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

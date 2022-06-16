@@ -65,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#cmsprocessModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add CmsProcess
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -156,19 +156,20 @@ echo get_words($des,10);
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="col-md-12 col-xs-12">
+                                        <div class="row">
+                                        <div class="col-md-6 col-xs-12">
                                             <label>Title</label>
                                             <input type="text" id="text_title" name="title"  class="form-control" >
                                             
                                         </div>
-                                         <div class="col-md-12 col-xs-12">
+                                         <div class="col-md-6 col-xs-12">
                                             <label>Icon Class</label>
                                             <input type="text" id="icon_class" name="icon_class"  class="form-control" >
                                             
-                                        </div
+                                        </div>
+                                        </div>
                                   
-                                        ><div class="col-md-12 col-xs-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <label>Description</label>
                                             <textarea id="description" name="description"  class="form-control"rows="5" ></textarea>
                                         </div>

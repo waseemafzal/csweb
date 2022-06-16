@@ -50,12 +50,12 @@ class Cmsprocess extends CI_Controller {
                 else
                 {
                    
-				  //  //mata_description
+				//  //mata_description
+				   $data=array('title'=>$title,'icon_class'=>$icon_class,'description'=>$description,'cms_id'=>$cms_id); 
 				  
-				  $image='noimg.png';
 				  if(isset($_FILES['image']['name'])){
 					 // print_r($_FILES);exit;
-					$image=  $this->model->do_upload();
+					$data['image']=  $this->model->do_upload();
 					  
 					  }else{
 						  if($id==''){
@@ -65,7 +65,8 @@ class Cmsprocess extends CI_Controller {
 							  }
 
 						  }
-				   $data=array('title'=>$title,'icon_class'=>$icon_class,'description'=>$description,'image'=>$image,'cms_id'=>$cms_id); 
+				  
+				    
 					if(isset($id) and $id!=''){
 						$result=  $this->model->updateData($id,$data); 
 						if($result==1){

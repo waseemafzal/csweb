@@ -65,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#teamsModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add Teams
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -172,41 +172,44 @@ echo get_words($des,10);
                                             <textarea id="text_designation" name="designation"  class="form-control"></textarea>
                                         </div>
                                         
-                                        <div class="row">
-                                        <div class="col-md-6 col-xs-12">
+                                    
+                                        <div class="col-md-12 col-xs-12">
                                             <label>Image</label>
                                             <input type="file" id="image" name="image"  class="form-control" >
                                             <div id="imgdiv" class="col-xs-12"></div>
                                         </div>
                                   
-                                        <div class="col-md-6 col-xs-12">
-                                            <label>Facebook</label>
-                                            <input type="text" id="text_facebook" name="facebook"  class="form-control" >
+                                        <div class="col-md-4 col-xs-12">
+                                       
+                                            <input type="text" id="text_facebook" name="facebook"  class="form-control" style="display:none" >
                                              
                                         </div>
                                         
                                         
-                                  </div>
+                                 
                                   <!--(`id`, ``, `content`, `banner`, `icon_class`, `meta_title`, `meta_description`, `meta_keywords`)-->
-                                  <div class="row">
-                                  <div class="col-md-6 col-xs-12">
-                                            <label>youtube</label>
-                                            <input type="text" id="text_youtube" name="youtube"  class="form-control" >
+                                 
+                                  <div class="col-md-4 col-xs-12">
+             
+                                            <input type="text" id="text_youtube" name="youtube"  class="form-control" style="display:none" >
                                             
                                         </div>
+                                      
+                                         <div class="row">
                                         <div class="col-md-6 col-xs-12">
-                                            <label>Twitter</label>
-                                            <input type="text" id="text_twitter" name="twitter"  class="form-control" >
+                                          
+                                            <input type="text" id="text_twitter" name="twitter"  class="form-control" style="display:none" >
                                              
                                         </div>
                                         
                                         
                                         
-                                     </div>
-                                   <div class="col-md-12 col-xs-12">
-                                            <label>Linkedin</label>
-                                            <input type="text" id="text_linkedin" name="linkedin"  class="form-control" >
+                                     
+                                   <div class="col-md-6 col-xs-12">
+                                           
+                                            <input type="text" id="text_linkedin" name="linkedin"  class="form-control"style="display:none" >
                                              
+                                        </div>
                                         </div>
                     
 

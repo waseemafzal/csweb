@@ -25,9 +25,10 @@ public function do_upload($max_width=1024,$max_height=768)
         {
                 $config['upload_path']          = './upload/';
                 $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 100;
+/*                $config['max_size']             = 1000;
                 $config['max_width']            = $max_width;
                 $config['max_height']           = $max_height;
+*/
                 $config['overwrite']           = false;
                 $config['encrypt_name']           = true;
                 $config['remove_spaces']           = true;

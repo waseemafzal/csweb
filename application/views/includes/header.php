@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-
+<?php 
+$setting=getSettings();
+$logo=base_url().'upload/'.$setting['image'];
+?>
 <head>
     <title>CypherSol</title>
     <!-- description -->
@@ -29,7 +32,7 @@
     <link rel="stylesheet" href="public/css/font-awesome.min.css">
     <link rel="stylesheet" href="public/css/fonts.css" />
     <!-- Slider Revolution CSS Files -->
-    <link rel="stylesheet" type="text/css" href="revolution/css/settings.css">
+    <link rel="stylesheet" type="text/css" href="public/revolution/css/settings.css">
     <!-- ++++ style ++++ -->
     <link rel="stylesheet" href="public/css/style.css" />
     <!-- responsive css -->
@@ -37,6 +40,22 @@
     <!-- [if IE]>
         <script src="public/js/html5shiv.js"></script>
     <![endif]  -->
+    <style>
+    .customAlert{
+    position: fixed;
+    z-index: 9999;
+    width: 98%;
+    text-align: center;
+    top: 2%;
+    left: 1%;
+}
+body{
+    overflow-x: hidden;
+}
+.banner .banner-txt h1 {
+    margin: 0 90 90px;
+}
+    </style>
 </head>
 
 <body>
@@ -57,11 +76,11 @@
                     <ul class="pull-right list-inline">
                         <li>
                             <a href="tel:012.345.1234">
-                                <i class="icon-telephone"></i>+92-341-7090031</a>
+                                <i class="icon-telephone"></i><?=$setting['phone']?></a>
                         </li>
                         <li>
                             <a href="mailto:info@company.com">
-                                <i class="icon-envelope"></i>ceo.cyphersol@gmail.com</a>
+                                <i class="icon-envelope"></i><?=$setting['email']?></a>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +100,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.php">
-                        <img src="public/images/logo.png" alt="Brand" class="img-responsive" />
+                        <img src="<?=$logo?>" alt="Brand" class="img-responsive" />
                     </a>
                 </div>
                 <!--Collect the nav links, and other content for toggling-->
@@ -208,9 +227,7 @@
                         <li>
                             <a href="portfolio">Portfolio</a>
                         </li>
-                        <li>
-                            <a href="case-studies">Case Studies</a>
-                        </li>
+                        
                         <li class="dropdown">
                             <a href="about" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
                             <div class="dropdown-menu">
@@ -218,15 +235,11 @@
                                     <li>
                                         <a href="team">Team</a>
                                     </li>
-                                    <li>
-                                        <a href="awards-and-recognitions">Awards &amp; Recognition</a>
-                                    </li>
+                                   
                                     <li>
                                         <a href="career">Career</a>
                                     </li>
-                                    <li>
-                                        <a href="customer-reviews">Customer Reviews</a>
-                                    </li>
+                                  
                                     <li>
                                         <a href="faqs">FAQs</a>
                                     </li>
@@ -245,9 +258,7 @@
                             <div class="dropdown-menu">
                                 <ul class="megamenu">
                                     
-                                    <li>
-                                        <a href="search-results">Search Results</a>
-                                    </li>
+                                    
                                     
                                     <li>
                                         <a href="terms-conditions">Terms &amp; Conditions</a>
@@ -255,12 +266,18 @@
                                     <li>
                                         <a href="privacy-policy">Privacy Policy</a>
                                     </li>
+                                     <li>
+                                        <a href="career">Career</a>
+                                    </li>
+                                    <li>
+                                        <a href="blog-details">blog details</a>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- End of .dropdown-menu -->
                         </li>
-                        <li class="menu-btn" data-toggle="modal" data-target="#getAQuoteModal">
-                            <a class="btn btn-fill" href="#">GET A QUOTE
+                        <li class="menu-btn">
+                            <a class="btn btn-fill" href="javascript:void(0)" id="btnQout" >GET A QUOTE
                                 <span class="icon-chevron-right"></span>
                             </a>
                         </li>
@@ -272,3 +289,19 @@
         </div>
     </div>
     <!-- End of .header-wrapper -->
+    <div class="alert customAlert" style="display:none"> </div>
+    <style>
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%; z-index: 9999;
+  transform: translate(-50%, -50%);
+
+}
+</style>
+        <div id="loader" style="display:none">
+
+    <div id="loading-img" class="centered"> 
+    <img src="public/images/loader.gif">
+    </div>
+    </div>

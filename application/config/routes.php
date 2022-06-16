@@ -49,6 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+//
+$route['admin'] = 'admin/user/login';
 $route['default_controller'] = 'page/home';
 $route['services'] = 'page/services';
 $route['portfolio'] = 'page/portfolio';
@@ -56,21 +58,23 @@ $route['case-studies'] = 'page/case_studies';
 $route['about'] = 'page/about';
 $route['blog'] = 'page/blog';
 $route['contact'] = 'page/contact';
-$route['ecommerce'] = 'page/ecommerce';
+$route['ecommerce'] = 'page/cms/10';
 $route['domain'] = 'page/domain';
 $route['hosting'] = 'page/hosting';
 $route['reporting'] = 'page/reporting';
-$route['content-management-system'] = 'page/contentmanagementsystem';
-$route['logo-and-branding'] = 'page/logoandbranding';
-$route['website-design'] = 'page/websitedesign';
-$route['mobile-app-design'] = 'page/mobileappdesign';
-$route['graphic-design'] = 'page/graphicdesign';
-$route['video-production'] = 'page/videoproduction';
-$route['mobile-app-development'] = 'page/mobileappdevelopment';
-$route['search-engine-optimization'] = 'page/searchengineoptimization';
-$route['email-marketing'] = 'page/emailmarketing';
-$route['display-marketing'] = 'page/displaymarketing';
-$route['social-media-marketing'] = 'page/socialmediamarketing';
+$route['content-management-system'] = 'page/cms/9';
+$route['logo-and-branding'] = 'page/cms/4';
+$route['mobile-app-development'] = 'page/cms/2';
+$route['website-design'] = 'page/cms/5';
+$route['mobile-app-design'] = 'page/cms/6';
+$route['graphic-design'] = 'page/cms/7';
+$route['video-production'] = 'page/cms/8';
+$route['search-engine-optimization'] = 'page/cms/11';
+
+$route['email-marketing'] = 'page/cms/12';
+
+$route['display-marketing'] = 'page/cms/13';
+$route['social-media-marketing'] = 'page/cms/14';
 $route['digital-strategy'] = 'page/digitalstrategy';
 $route['business-consulting'] = 'page/businessconsulting';
 $route['content-writing'] = 'page/contentwriting';
@@ -82,6 +86,8 @@ $route['customer-reviews'] = 'page/customerreviews';
 $route['faqs'] = 'page/faqs';
 $route['search-results'] = 'page/searchresults';
 $route['terms-conditions'] = 'page/termsconditions';
+$route['apply-from'] = 'page/applyfrom';
+$route['blog-details'] = 'page/blogdetails';
 $route['privacy-policy'] = 'page/privacypolicy';
 $route['index'] = 'page/index';
 

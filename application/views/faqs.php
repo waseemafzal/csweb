@@ -19,98 +19,45 @@
     <section id="faqs" class="faqs">
         <div class="container">
             <!--section title -->
+            <?php 
+			$CI =& get_instance();
+	$data = $CI->db->select('category')->group_by('category')->get('tbl_faqs');
+	if($data->num_rows()>0){
+		foreach($data->result() as $cat){
+			
+			   // sab query
+	$faqs = $CI->db->select('*')->where('category',$cat->category)->get('tbl_faqs');
+			?>
             <div class="faqs-content bg-white">
-                <h2 class="b-clor">FAQs: Design</h2>
+                <h2 class="b-clor">FAQs: <?php echo $cat->category; ?></h2>
                 <hr class="dark-line">
                 <div class="accordion-section">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <?php 
+					if($faqs->num_rows()>0){
+		foreach($faqs->result() as $row){
+					?>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        <i class="more-less icon-plus"></i>What Social Channels do you design and set up?</a>
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?=$row->id?>" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="more-less icon-plus"></i><?=$row->question?>?</a>
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                            <div id="collapseOne<?=$row->id?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                                 <div class="panel-body">
-                                    We design Facebook, Twitter, YouTube, Google+ and LinkedIn. Others are available upon request.
+                                    <?=$row->description?>
                                 </div>
                             </div>
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingTwo">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">
-                                        <i class="more-less icon-plus"></i>Do you offer a package for designing all channels?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                <div class="panel-body">
-                                    It can take up to two weeks to design all of these social media pages, dependent on any requested changes. Facebook pages
-                                    usually take the longest, around a week, due to the fact that they offer so much for
-                                    business owners to utilize.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">
-                                        <i class="more-less icon-plus"></i>Can I make my own changes after the initial design and set up are complete?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                <div class="panel-body">
-                                    Yes. Changes can be made just as easy as they can be made on your actual website, if not easier. If additional help is needed,
-                                    we offer a solution for that as well.
-                                </div>
-                            </div>
-                        </div>
+                        <?php }} ?>                        
                     </div>
                 </div>
                 <!-- End of .accordion-section -->
             </div>
+            <?php }} ?>
             <!-- End of .faqs-content -->
-            <div class="faqs-content faqs-content2">
-                <h2 class="b-clor">FAQs: Development</h2>
-                <hr class="dark-line">
-                <div class="accordion-section">
-                    <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingFour">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                        <i class="more-less icon-plus"></i>What is the cost of a mobile website?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                <div class="panel-body">
-                                    The cost of a mobile website is much lower than a typical full custom website design, so please call us for a free consultation
-                                    so we can determine what your needs are and provide a quote.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingFive">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive" aria-expanded="false"
-                                        aria-controls="collapseTwo">
-                                        <i class="more-less icon-plus"></i>Is there tracking available for mobile websites like a regular website?</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-                                <div class="panel-body">
-                                    Yes we can set up mobile analytics just like you would see on Google Analytics for your regular website.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End of .accordion-section -->
-            </div>
-            <!-- End of .faqs-content -->
+            
         </div>
         <!-- End of .container -->
     </section>

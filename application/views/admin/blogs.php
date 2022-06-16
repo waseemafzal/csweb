@@ -65,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#blogsModal">
                                     <i class="fas fa-plus"></i>
-                                    Add
+                                    Add Blogs
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -159,43 +159,51 @@ echo get_words($des,10);
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="col-md-12 col-xs-12">
+                       <div class="row">
+                                        <div class="col-md-6 col-xs-12">
                                             <label>Title</label>
                                             <input type="text" id="text_title" name="title"  class="form-control" >
                                             
                                         </div>
-                                                  <label>Select Category:</label>
+                                     <div class="col-md-6 col-xs-12">
+                                       <label>Select Category:</label>
                     <select class="form-control" name="category" id="text_category">
-                   
-                       <option value="Website Design">Website Design</option>
-            <option value=" Mobile Apps Design"> Mobile Apps Design</option>
-            <option value="Website Development">Website Development </option>
-              <option value="Mobile Apps  Development ">Mobile Apps  Development </option>
-            <option value="ONLINE MARKETING">ONLINE MARKETING</option>
-            <option value="BUSINESS">BUSINESS</option>
-             <option value="TECHNOLOGY">TECHNOLOGY</option>
-             <option value="Priczig">Priczig</option>
+                    <?php 
+				   
+				   $catArray=array('Website Design','Mobile Apps Design','Mobile Apps  Development','Online Marketing',
+				   'Business','Technology');
+				   
+				   foreach($catArray as $key=>$val){
+				   ?>
+                       <option value="<?=$val?>"><?=$val?></option>
+                       <?php } ?>
                     </select>
+                    </div>
+                    </div>
+                    
                                   
                                         <div class="col-md-12 col-xs-12">
                                             <label>Description</label>
                                             <textarea id="description" name="description"  class="form-control"rows="5" ></textarea>
                                         </div>
-                                         <div class="col-md-12 col-xs-12">
+                                        <div class="row">
+                                         <div class="col-md-4 col-xs-12">
                                             <label>date</label>
                                             <input type="date" id="text_date" name="date"  class="form-control" >
                                             
                                         </div>
-                                        <div class="col-md-12 col-xs-12">
+                                        <div class="col-md-4 col-xs-12">
                                             <label>Image</label>
                                             <input type="file" id="image" name="image"  class="form-control" >
                                             <div id="imgdiv" class="col-xs-12"></div>
                                         </div>
-                                         <div class="col-md-12 col-xs-12">
+                                        
+                                   
+                                         <div class="col-md-4 col-xs-12">
                                             <label>tags</label>
                                             <input type="text" id="text_tags" name="tags"  class="form-control" >
                                             
+                                        </div>
                                         </div>
                                         <div class="col-md-12 col-xs-12" style="display: none">
                                             <label>meta_title</label>
@@ -284,6 +292,8 @@ console.log(response);
      else if(response.status==204){
         $("#alert").addClass("alert-danger");
      }
+
+
 
         $("#alert").show(); // will show the div display:block
         $("#alert").html(response.message); 

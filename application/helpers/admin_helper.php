@@ -21,6 +21,20 @@ function getTable($table){
 			}
 	
 	}	
+
+function getSettings(){
+	$CI =& get_instance();
+	$data = $CI->db->where('id',1)->get(TBL_SETTING);
+	
+	if($data->num_rows()>0){
+		$arr= $data->result_array();
+		return  $arr[0];
+		}else{
+			return array();
+			}
+	
+	}	
+
 	
 function pre($arr){
 	echo '<pre>';

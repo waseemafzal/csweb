@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,12 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <style type="text/css">
+
+.customWidth{
+    width: 90%;
+    max-width: initial;
+}
+
     .title{
         display: inline-block;
     }
@@ -58,7 +65,7 @@
                     <h1 class="title h3 mb-2 text-gray-800"><?=$modeltitle;?></h1>
                    <a class="btn btn-lg fr btn-info" href="#" data-toggle="modal" data-target="#contactusModal">
                                     <i class="fas fa-plus"></i>
-                                    
+                                    Add Contact
                                 </a>
                        <div class="clear">&nbsp;</div>         
                     <!-- DataTales Example -->
@@ -72,7 +79,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                          <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Website</th>
@@ -136,58 +143,52 @@ echo get_words($des,10);
     <!-- Logout Modal-->
     <div class="modal fade" id="contactusModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog customWidth" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel"> Contact Us</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Contact Us</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form id="form_add_update">
+                       <form id="form_add_update">
                 <div class="modal-body">
                     <div id="customAlert" class="alert" style="display: none" ></div>
                     
-                       
-                                        <div class="form-group">
+                       <div class="row">
+                                        <div class="col-md-6 col-xs-12">
                                             <label>Name</label>
                                             <input type="text" id="text_name" name="name"  class="form-control" >
                                             
                                         </div>
-                                <div class="form-group">
-                                            <label>Email</label>
+                                  
+                                        <div class="col-md-6 col-xs-12">
+                                             <label>Email</label>
                                             <input type="text" id="text_email" name="email"  class="form-control" >
-                                            
                                         </div>
-                                       
-                                        
-                                         <div class="form-group">
-                                            <label>Phone</label>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                             <label>Phone</label>
                                             <input type="text" id="text_phone" name="phone"  class="form-control" >
-                                             
-                                        <div class="form-group">
-                                            <label>Website</label>
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                             <label>Website</label>
                                             <input type="text" id="text_website" name="website"  class="form-control" >
-                                            
                                         </div>
-                                         </div>
-                                        <div class="form-group">
-                                            <label>Messages</label>
+                                        </div>
+                                        <div class="col-md-12 col-xs-12">
+                                             <label>Messages</label>
                                             <textarea id="messages" name="messages"  class="form-control" ></textarea>
-                                            
                                         </div>
-                                       
-                                     
-                                   
-                    
-
-                </div>
+                                        
                
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                      <button type="submit" class="btn btn-success"><i class="fa fa-spinner fa-spin" id="loader" style="font-size:24px;display: none"></i> Save </button>
                       <input type="hidden" id="id" name="id" value="" >
                 </div>
+                
                 </form>
             </div>
         </div>
@@ -233,7 +234,7 @@ if(!confirm('Are you sure to delete')){
 
 $.ajax({
   type: "POST",
-  url: "admin/bcontactus/delete",
+  url: "admin/contactus/delete",
   processData: false,
     contentType: false,
     cache: false,

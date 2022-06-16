@@ -8,32 +8,49 @@ public function __construct()
                 parent::__construct();
 				$this->load->model('silders_model');
 				$this->load->model('cmservices_model');
+				$this->load->model('portfolio_model');
+				$this->load->model('Blogs_model');
+				$this->load->model('Settings_model');
+				$this->load->model('Careers_model');
+				$this->load->model('team_model');
+				$this->load->model('tastingmonail_model');
         }
 	
 	public function home()
 		{
 			$array['sliderData']=	$this->silders_model->getData(); 
-			{
+			
 			$array['cmservicesData']=	$this->cmservices_model->getData();
+			$array['portfolioData']=	$this->portfolio_model->getData();
+			$array['BlogsData']=	$this->Blogs_model->getData();
+			$array['tastingmonailData']=	$this->tastingmonail_model->getData();
 			$this->load->view('index',$array);  
 			
 		} 
 			
-		}
+	public function	blogdetails(){
+		$array['detail']=	$this->Blogs_model->getDataById($_GET['id']);
+		$array['recentBlogs']=	$this->Blogs_model->recentBlogs();
+						$this->load->view('blog-details',$array);  
+
+			}
 		
 		
 	
 	public function services()
-		{
-			
+		{		
 $array['cmservicesData']=	$this->cmservices_model->getData();
 			$this->load->view('services',$array);
 			
 		}
+
+		
+		
 		public function portfolio()
 		{
+			$array['portfolioData']=	$this->portfolio_model->getData();
 			
-			$this->load->view('portfolio');
+			$this->load->view('portfolio',$array);
 			
 		}
 		public function case_studies()
@@ -50,8 +67,10 @@ $array['cmservicesData']=	$this->cmservices_model->getData();
 		}
 		public function blog()
 		{
-			
-			$this->load->view('blog');
+			$array['BlogsData']=	$this->Blogs_model->getData();
+			$array['recentBlogs']=	$this->Blogs_model->recentBlogs();
+			//pre($array['recentBlogs']);
+			$this->load->view('blog',$array);
 			
 		}
 		public function contact()
@@ -60,12 +79,7 @@ $array['cmservicesData']=	$this->cmservices_model->getData();
 			$this->load->view('contact');
 			
 		}
-		public function ecommerce()
-		{
-			
-			$this->load->view('ecommerce');
-			
-		}
+		
 		public function domain()
 		{
 			
@@ -84,77 +98,17 @@ $array['cmservicesData']=	$this->cmservices_model->getData();
 			$this->load->view('reporting');
 			
 		}
-	public function contentmanagementsystem()
+	
+		public function cms($id)
 		{
-			
-			$this->load->view('content-management-system');
-			
-		}
-		public function logoandbranding()
-		{
-			
-			$this->load->view('logo-and-branding');
-			
-		}
-		public function websitedesign()
-		{
-			
-			$this->load->view('website-design');
-			
-		}
-		public function mobileappdesign()
-		{
-			
-			$this->load->view('mobile-app-design');
-			
-		}
-		public function graphicdesign  ()
-		{
-			
-			$this->load->view('graphic-design');
-			
-		}
-			public function videoproduction  ()
-		{
-			
-			$this->load->view('video-production');
-			
-		}
-			public function mobileappdevelopment  ()
-		{
-			
-			$this->load->view('mobile-app-development');
+			$array['row']=	$this->cmservices_model->editData($id);
+			$array['processArray']=	$this->db->where(array('cms_id'=>$id))->get('cms_process')->result_array();
+			$this->load->view('cms',$array);
 			
 		}
 		
-		public function searchengineoptimization ()
 		
-		{
-			
-			$this->load->view('search-engine-optimization');
-			
-		}
-		public function emailmarketing ()
 		
-		{
-			
-			$this->load->view('email-marketing');
-			
-		}
-		public function displaymarketing()
-		
-		{
-			
-			$this->load->view('display-marketing');
-			
-		}
-		public function socialmediamarketing()
-		
-		{
-			
-			$this->load->view('social-media-marketing');
-			
-		}
 		public function digitalstrategy()
 		
 		{
@@ -186,8 +140,8 @@ $array['cmservicesData']=	$this->cmservices_model->getData();
 		public function team()
 		
 		{
-			
-			$this->load->view('team');
+			$array['TeamData']=	   $this->team_model->getData();
+			$this->load->view('team',$array);
 			
 		}
 		public function awardsandrecognitions()
@@ -200,8 +154,9 @@ $array['cmservicesData']=	$this->cmservices_model->getData();
 		public function career()
 		
 		{
+			$array['CareersData']=	$this->Careers_model->getData();
 			
-			$this->load->view('career');
+			$this->load->view('career',$array);
 			
 		}
 		public function customerreviews()
@@ -237,6 +192,13 @@ $array['cmservicesData']=	$this->cmservices_model->getData();
 		{
 			
 			$this->load->view('privacy-policy');
+			
+		}
+		public function applyfrom()
+		
+		{
+			
+			$this->load->view('apply-from');
 			
 		}
 		public function index()
