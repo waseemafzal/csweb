@@ -58,23 +58,25 @@ $route['case-studies'] = 'page/case_studies';
 $route['about'] = 'page/about';
 $route['blog'] = 'page/blog';
 $route['contact'] = 'page/contact';
-$route['ecommerce'] = 'page/cms/10';
+
+
 $route['domain'] = 'page/domain';
 $route['hosting'] = 'page/hosting';
 $route['reporting'] = 'page/reporting';
-$route['content-management-system'] = 'page/cms/9';
-$route['logo-and-branding'] = 'page/cms/4';
+
 $route['mobile-app-development'] = 'page/cms/2';
+$route['logo-and-branding'] = 'page/cms/4';
 $route['website-design'] = 'page/cms/5';
 $route['mobile-app-design'] = 'page/cms/6';
 $route['graphic-design'] = 'page/cms/7';
+$route['content-management-system'] = 'page/cms/9';
 $route['video-production'] = 'page/cms/8';
+$route['ecommerce'] = 'page/cms/10';
 $route['search-engine-optimization'] = 'page/cms/11';
-
 $route['email-marketing'] = 'page/cms/12';
-
 $route['display-marketing'] = 'page/cms/13';
 $route['social-media-marketing'] = 'page/cms/14';
+
 $route['digital-strategy'] = 'page/digitalstrategy';
 $route['business-consulting'] = 'page/businessconsulting';
 $route['content-writing'] = 'page/contentwriting';

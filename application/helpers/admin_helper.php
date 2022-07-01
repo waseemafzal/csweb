@@ -8,6 +8,11 @@ function get_words($sentence, $count = 10) {
 }
 
 
+ function record_count($table) {
+	$CI =& get_instance();
+   return $CI->db->count_all($table);
+}
+
 	
 function getTable($table){
 	$CI =& get_instance();
